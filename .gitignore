@@ -1,0 +1,6 @@
+.DS_Store
+
+# Quellmaterial der Kundin – gehört nicht in ein öffentliches Repository
+referenz/
+inhalte/
+*.rtf

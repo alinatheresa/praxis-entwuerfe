@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Designentwürfe – Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa</title>
+<title>Designentwürfe für die Privatpraxis Dr. med. univ. Oana-Raluca Despa</title>
 <!-- Übersichtsseite für die drei Startseiten-Entwürfe. Nicht für Suchmaschinen freigegeben. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,19 +25,23 @@
 
   .praxis{font-size:.92rem;color:#5B6C71;margin:0 0 28px}
   h1{font-size:1.9rem;font-weight:600;letter-spacing:-.02em;line-height:1.2;margin:0 0 .6rem}
-  .intro{color:#5B6C71;margin:0 0 8px}
+  .intro{color:#5B6C71;margin:0}
 
-  ul{list-style:none;margin:44px 0 0;padding:0}
-  li{padding:26px 0;border-top:1px solid #E3E8E9}
-  li:last-child{border-bottom:1px solid #E3E8E9}
+  ul{list-style:none;margin:38px 0 0;padding:0;display:grid;gap:14px}
 
-  .titel{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;text-decoration:none;color:#1D2A2E}
-  .titel:hover{color:#17727F}
-  .beschreibung{color:#5B6C71;font-size:.98rem;margin:.35rem 0 0}
-  .neben{font-size:.88rem;color:#7A8A8E;margin:.7rem 0 0}
-  .neben a{color:#7A8A8E}
+  .kasten{
+    display:block;text-decoration:none;color:inherit;
+    background:#F7F9F9;border:1px solid #DDE5E6;border-radius:10px;
+    padding:22px 24px;
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .kasten:hover{background:#EFF5F5;border-color:#17727F}
+  .kasten:hover .titel{color:#17727F}
 
-  footer{color:#7A8A8E;font-size:.88rem;margin-top:44px}
+  .titel{display:block;font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin:0 0 .3rem}
+  .beschreibung{color:#5B6C71;font-size:.98rem;margin:0}
+
+  footer{color:#7A8A8E;font-size:.88rem;margin-top:40px}
 </style>
 </head>
 <body>
@@ -52,31 +56,25 @@
 
   <ul>
     <li>
-      <a class="titel" href="mockups/variante-a.html">A — Ruhe &amp; Wärme</a>
-      <p class="beschreibung">Erdige Töne, eine leichte Serifenschrift und viel Weißraum.
-        Türkis und Gold nur als leiser Akzent.</p>
-      <p class="neben">
-        <a href="mockups/variante-a-impressum.html">Impressum</a> ·
-        <a href="mockups/variante-a-datenschutz.html">Datenschutz</a>
-      </p>
+      <a class="kasten" href="mockups/variante-a.html">
+        <span class="titel">A: Ruhe &amp; Wärme</span>
+        <span class="beschreibung">Erdige Töne, eine leichte Serifenschrift und viel Weißraum.
+          Türkis und Gold nur als leiser Akzent.</span>
+      </a>
     </li>
     <li>
-      <a class="titel" href="mockups/variante-b.html">B — Klar &amp; Präzise</a>
-      <p class="beschreibung">Tiefes Petrol mit Türkis und dezenten Goldlinien in einem
-        strengen Raster. Die sachlichste der drei Richtungen.</p>
-      <p class="neben">
-        <a href="mockups/variante-b-impressum.html">Impressum</a> ·
-        <a href="mockups/variante-b-datenschutz.html">Datenschutz</a>
-      </p>
+      <a class="kasten" href="mockups/variante-b.html">
+        <span class="titel">B: Klar &amp; Präzise</span>
+        <span class="beschreibung">Tiefes Petrol mit Türkis und dezenten Goldlinien in einem
+          strengen Raster. Die sachlichste der drei Richtungen.</span>
+      </a>
     </li>
     <li>
-      <a class="titel" href="mockups/variante-c.html">C — Weich &amp; Modern</a>
-      <p class="beschreibung">Sanfte Verläufe aus Mint und Himmelblau, große Typografie
-        und runde Formen. Die freundlichste Richtung.</p>
-      <p class="neben">
-        <a href="mockups/variante-c-impressum.html">Impressum</a> ·
-        <a href="mockups/variante-c-datenschutz.html">Datenschutz</a>
-      </p>
+      <a class="kasten" href="mockups/variante-c.html">
+        <span class="titel">C: Weich &amp; Modern</span>
+        <span class="beschreibung">Sanfte Verläufe aus Mint und Himmelblau, große Typografie
+          und runde Formen. Die freundlichste Richtung.</span>
+      </a>
     </li>
   </ul>
 

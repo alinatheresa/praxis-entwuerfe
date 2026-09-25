@@ -46,9 +46,14 @@ als Textfarbe durchfällt: `--akzent` ist rein dekorativ, `--akzent-tief` trägt
 
 Formular und Kontaktangaben liegen in einem gemeinsamen Abschnitt mit der ID `#kontakt`.
 Ab 900 px zweispaltig: links die Kontaktangaben, rechts das Formular, darunter über die
-volle Breite die Karte. Darunter einspaltig in der Reihenfolge Kontaktangaben, Formular,
-Karte. Einen separaten Terminabschnitt gibt es nicht mehr; alle Buttons springen auf
-`#kontakt`.
+volle Breite die Anfahrt. Darunter einspaltig in derselben Reihenfolge. Einen separaten
+Terminabschnitt gibt es nicht mehr; in der Kopfzeile führt nur noch der hervorgehobene
+Button auf `#kontakt`.
+
+Statt einer eingebetteten Karte steht unter der Adresse ein Textlink „In Google Maps
+öffnen", der die Adresse als Suchanfrage übergibt und in einem neuen Tab aufgeht. Kein
+iframe, kein Kartendienst im Seitenaufbau, damit ohne Einwilligung keine Daten an Dritte
+fließen.
 
 Das Terminbuchungs-Widget ist entfallen. An seiner Stelle steht ein Kontaktformular mit
 Name, E-Mail, Telefon (optional) und Nachricht.
@@ -58,6 +63,13 @@ Solche Felder würden Gesundheitsdaten im Sinne von Art. 9 DSGVO strukturiert er
 den Aufwand für Rechtsgrundlage, Einwilligung und Verschlüsselung erheblich erhöht. Unter
 dem Formular steht der Hinweis, keine sensiblen Gesundheitsdaten anzugeben, mit Link zur
 Datenschutzerklärung.
+
+**Spamschutz:** Ein Honeypot-Feld, das per CSS aus dem sichtbaren Bereich geschoben wird,
+`tabindex="-1"` und `autocomplete="off"` trägt und mit `aria-hidden` aus der
+Sprachausgabe genommen ist. Ist es beim Absenden ausgefüllt, wird die Anfrage verworfen.
+Die Bestätigung erscheint trotzdem, damit ein Bot nicht erkennt, dass er aufgefallen ist.
+Kein reCAPTCHA, keine externen Dienste. Die Prüfung muss später zusätzlich serverseitig
+erfolgen, weil clientseitiges JavaScript umgangen werden kann.
 
 Pflichtfelder sind Name, E-Mail und Nachricht. Die Validierung läuft ohne Framework, zeigt
 Fehler direkt am Feld, setzt `aria-invalid`, springt zum ersten fehlerhaften Feld und
@@ -117,9 +129,10 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 
 - Entscheidung für eine Farbvariante
 - Kurzbeschreibungen zu den sechs Leistungen, je ein bis zwei Sätze
-- Telefonnummer und Sprechzeiten
+- Telefonnummer
 - Ablauf eines Termins: die drei Schritte sind noch vollständig Platzhalter
 - Einleitungstexte für Leistungen, Ablauf und Anfahrt
 - Fotos der Praxisräume und ein Portrait
+- Serverseitige Honeypot-Prüfung zusätzlich zur clientseitigen
 - Versandweg für das Kontaktformular
 - Impressum und Datenschutz juristisch befüllen

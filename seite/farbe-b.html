@@ -121,7 +121,6 @@
   .ph{display:flex;align-items:center;justify-content:center;text-align:center;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(140deg,var(--ton-1) 0%,var(--ton-2) 60%,var(--ton-3-hell) 100%);color:var(--ink-soft);font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:18px}
   .ph-hero{aspect-ratio:3/2}
   .ph-portrait{aspect-ratio:4/5}
-  .ph-map{aspect-ratio:16/9}
 
   .hero{padding:44px 0 0;text-align:center}
   .hero .pill-label{margin-inline:auto}
@@ -186,6 +185,10 @@
 
   .formular{max-width:620px}
   .feld{margin-bottom:20px}
+
+  /* Honeypot: für Menschen unsichtbar, wird nur von Bots ausgefüllt.
+     Kein display:none, damit einfache Bots das Feld als echt einstufen. */
+  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
   .optional{font-weight:500;color:var(--ink-soft)}
   .feld input,.feld textarea{
@@ -216,6 +219,14 @@
   .kontakt-karte dd{margin:.3rem 0 0;font-size:1.05rem;font-weight:500}
   .kontakt-karte dd span{display:block}
   .kontakt-karte dd a{color:var(--akzent-tief)}
+  .maps-link{margin-top:.6rem;font-size:.95rem;font-weight:600}
+
+  .anfahrt-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 36px;box-shadow:var(--schatten)}
+  @media(min-width:900px){.anfahrt-karte{padding:38px 34px 42px}}
+  .anfahrt{display:grid;gap:24px}
+  @media(min-width:900px){.anfahrt{grid-template-columns:repeat(2,1fr);gap:36px}}
+  .anfahrt-titel{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .5rem}
+  .anfahrt p{color:var(--ink-soft);font-size:1rem;margin:0}
 
   .site-foot{background:var(--weiss);border-top:1px solid var(--line);padding:46px 0 54px;color:var(--ink-soft);font-size:.95rem}
   .foot-row{display:grid;gap:26px}
@@ -251,7 +262,6 @@
           <a href="#leistungen">Leistungen</a>
           <a href="#ueber">Über mich</a>
           <a href="#ablauf">Ablauf</a>
-          <a href="#kontakt">Kontakt</a>
         </span>
         <a class="btn" href="#kontakt">Kontakt</a>
       </nav>
@@ -380,7 +390,6 @@
       <div class="sec-head zentriert">
         <p class="pill-label">Kontakt</p>
         <h2 id="kontakt-titel">Kontakt und Anfahrt</h2>
-        <p class="lede">[Platzhalter: Hinweise zu ÖPNV und Parkmöglichkeiten, ca. 25 Wörter]</p>
       </div>
 
       <div class="kontakt-raster">
@@ -389,13 +398,15 @@
           <h3 class="karte-titel">Kontaktangaben</h3>
           <dl>
             <dt>Adresse</dt>
-            <dd><span>Sächsische Strasse 70</span><span>10707 Berlin</span></dd>
+            <dd>
+              <span>Sächsische Strasse 70</span>
+              <span>10707 Berlin</span>
+              <span class="maps-link"><a href="https://maps.google.com/?q=S%C3%A4chsische%20Strasse%2070%2C%2010707%20Berlin" target="_blank" rel="noopener">In Google Maps öffnen</a></span>
+            </dd>
             <dt>Telefon</dt>
             <dd>[TELEFON]</dd>
             <dt>E-Mail</dt>
             <dd><a href="mailto:privatpraxis-despa@web.de">privatpraxis-despa@web.de</a></dd>
-            <dt>Sprechzeiten</dt>
-            <dd>[Platzhalter: Sprechzeiten]</dd>
           </dl>
         </div>
 
@@ -426,6 +437,11 @@
           <textarea id="f-nachricht" name="nachricht" required aria-required="true" aria-describedby="fehler-f-nachricht"></textarea>
           <p class="fehler" id="fehler-f-nachricht" role="alert" hidden></p>
         </div>
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Website (dieses Feld bitte leer lassen)</label>
+          <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
         <button type="submit" class="btn btn-lg">Nachricht senden</button>
       </form>
 
@@ -438,9 +454,18 @@
       </div>
         </div>
 
-        <figure class="kontakt-breit" style="margin:0">
-          <div class="ph ph-map" role="img" aria-label="Platzhalterfläche für den Lageplan">[Karte: Lageplan]</div>
-        </figure>
+        <div class="kontakt-breit anfahrt-karte">
+          <div class="anfahrt">
+            <div>
+              <h3 class="anfahrt-titel">Mit öffentlichen Verkehrsmitteln</h3>
+              <p>Die Praxis ist mit der U7 (Station Adenauerplatz oder Konstanzer Straße) sowie mit den Buslinien M19, M29 und 101 gut erreichbar. Von dort sind es wenige Minuten zu Fuß.</p>
+            </div>
+            <div>
+              <h3 class="anfahrt-titel">Mit dem Auto</h3>
+              <p>In der Sächsischen Straße und den umliegenden Seitenstraßen stehen Parkplätze zur Verfügung. Bitte beachten Sie die Parkraumbewirtschaftung in Wilmersdorf.</p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -500,8 +525,29 @@
     });
   });
 
+  function zeigeBestaetigung(){
+    form.hidden = true;
+    if(hinweis){ hinweis.hidden = true; }
+    danke.hidden = false;
+    danke.focus();
+  }
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
+
+    /* Honeypot. Das Feld ist für Menschen unsichtbar und aus der Tabreihenfolge
+       genommen. Ist es ausgefüllt, stammt die Anfrage praktisch sicher von einem
+       Bot und wird verworfen. Die Bestätigung erscheint trotzdem, damit der Bot
+       nicht erkennt, dass er aufgefallen ist.
+
+       WICHTIG für die spätere Umsetzung: An dieser Stelle darf der Versand nicht
+       ausgelöst werden, und die Prüfung muss zusätzlich serverseitig erfolgen. */
+    var falle = document.getElementById('f-website');
+    if(falle && falle.value.trim() !== ''){
+      zeigeBestaetigung();
+      return;
+    }
+
     var erstesFehlerfeld = null;
     regeln.forEach(function(regel){
       var feld = document.getElementById(regel.id);
@@ -515,10 +561,8 @@
       return;
     }
 
-    form.hidden = true;
-    if(hinweis){ hinweis.hidden = true; }
-    danke.hidden = false;
-    danke.focus();
+    /* Hier wird später der echte Versand angestoßen. */
+    zeigeBestaetigung();
   });
 })();
 </script>

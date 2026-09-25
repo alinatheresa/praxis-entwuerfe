@@ -171,14 +171,20 @@
   .schritt h3{margin-bottom:.4rem;font-size:1.28rem}
   .schritt p{color:var(--ink-soft);font-size:1rem}
 
-  /* ---------- Kontaktanfrage ---------- */
-  .anfrage-karte{background:linear-gradient(150deg,var(--ton-1) 0%,var(--ton-2) 55%,var(--ton-3-hell) 100%);border:1px solid var(--line);border-radius:36px;padding:44px 22px 46px;box-shadow:var(--schatten)}
-  @media(min-width:960px){.anfrage-karte{padding:66px 56px 70px}}
-  .anfrage-kopf{text-align:center;max-width:46ch;margin:0 auto 2.2rem}
-  .anfrage-kopf h2{margin-bottom:1rem}
-  .anfrage-kopf .lede{margin-inline:auto}
+  /* ---------- Kontaktbereich: Angaben, Formular, Karte ---------- */
+  .kontakt-raster{display:grid;gap:24px}
+  @media(min-width:900px){
+    .kontakt-raster{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
+    .kontakt-breit{grid-column:1 / -1}
+  }
 
-  .formular{max-width:620px;margin:0 auto}
+  .anfrage-karte{background:linear-gradient(150deg,var(--ton-1) 0%,var(--ton-2) 55%,var(--ton-3-hell) 100%);border:1px solid var(--line);border-radius:var(--radius);padding:32px 24px 36px;box-shadow:var(--schatten)}
+  @media(min-width:900px){.anfrage-karte{padding:38px 34px 42px}}
+  .anfrage-kopf{margin:0 0 1.8rem}
+  .anfrage-kopf h3{font-size:1.5rem;margin-bottom:.6rem}
+  .anfrage-kopf .lede{font-size:1.02rem;max-width:44ch}
+
+  .formular{max-width:620px}
   .feld{margin-bottom:20px}
   .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
   .optional{font-weight:500;color:var(--ink-soft)}
@@ -193,22 +199,23 @@
   .formular .btn{width:100%;margin-top:6px}
   @media(min-width:560px){.formular .btn{width:auto}}
 
-  .formular-hinweis{max-width:620px;margin:22px auto 0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
+  .formular-hinweis{max-width:620px;margin:22px 0 0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
   .formular-hinweis a{color:var(--akzent-tief)}
 
-  .bestaetigung{max-width:620px;margin:0 auto;background:var(--weiss);border:1px solid var(--line);border-left:4px solid var(--akzent-tief);border-radius:20px;padding:34px 28px}
+  .bestaetigung{max-width:620px;background:var(--weiss);border:1px solid var(--line);border-left:4px solid var(--akzent-tief);border-radius:20px;padding:34px 28px}
   .bestaetigung h3{color:var(--akzent-tief);margin-bottom:.6rem;font-size:1.3rem}
   .bestaetigung p{color:var(--ink-soft);font-size:1rem}
   .entwurfshinweis{margin-top:1.2rem;padding-top:1.2rem;border-top:1px dashed var(--line);font-size:.88rem}
 
-  .kontakt{display:grid;gap:26px}
-  @media(min-width:960px){.kontakt{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:34px;align-items:start}}
-  .kontakt-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;box-shadow:var(--schatten)}
-  .kontakt dl{margin:0}
-  .kontakt dt{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent-tief);margin-top:24px}
-  .kontakt dt:first-of-type{margin-top:0}
-  .kontakt dd{margin:.3rem 0 0;font-size:1.05rem;font-weight:500}
-  .kontakt dd span{display:block}
+  .kontakt-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 36px;box-shadow:var(--schatten)}
+  @media(min-width:900px){.kontakt-karte{padding:38px 34px 42px}}
+  .karte-titel{font-size:1.5rem;margin:0 0 1.4rem}
+  .kontakt-karte dl{margin:0}
+  .kontakt-karte dt{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent-tief);margin-top:24px}
+  .kontakt-karte dt:first-of-type{margin-top:0}
+  .kontakt-karte dd{margin:.3rem 0 0;font-size:1.05rem;font-weight:500}
+  .kontakt-karte dd span{display:block}
+  .kontakt-karte dd a{color:var(--akzent-tief)}
 
   .site-foot{background:var(--weiss);border-top:1px solid var(--line);padding:46px 0 54px;color:var(--ink-soft);font-size:.95rem}
   .foot-row{display:grid;gap:26px}
@@ -276,7 +283,7 @@
       <p style="margin:0">Sächsische Strasse 70, 10707 Berlin</p>
       <p class="foot-kontakt">
         <span>Telefon: [TELEFON]</span>
-        <span>E-Mail: [EMAIL]</span>
+        <span>E-Mail: <a href="mailto:privatpraxis-despa@web.de">privatpraxis-despa@web.de</a></span>
       </p>
     </div>
     <div>

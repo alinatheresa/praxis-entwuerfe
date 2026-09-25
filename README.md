@@ -42,7 +42,13 @@ Alle fünf Paletten sind gegen WCAG AA geprüft: jede Kombination aus Text- und 
 erreicht mindestens 4,5:1. Der Akzentton kommt in zwei Abstufungen vor, weil der helle Ton
 als Textfarbe durchfällt: `--akzent` ist rein dekorativ, `--akzent-tief` trägt Text.
 
-## Kontaktformular
+## Kontaktbereich
+
+Formular und Kontaktangaben liegen in einem gemeinsamen Abschnitt mit der ID `#kontakt`.
+Ab 900 px zweispaltig: links die Kontaktangaben, rechts das Formular, darunter über die
+volle Breite die Karte. Darunter einspaltig in der Reihenfolge Kontaktangaben, Formular,
+Karte. Einen separaten Terminabschnitt gibt es nicht mehr; alle Buttons springen auf
+`#kontakt`.
 
 Das Terminbuchungs-Widget ist entfallen. An seiner Stelle steht ein Kontaktformular mit
 Name, E-Mail, Telefon (optional) und Nachricht.
@@ -64,15 +70,14 @@ der Datenschutzerklärung beschrieben werden. Der Entwurf weist in der Bestätig
 
 ## Platzhalter für Kontaktdaten
 
-`[TELEFON]` und `[EMAIL]` stehen im Kontaktbereich, im Footer und im Impressum, damit sie
-an einer Stelle gesucht und ersetzt werden können:
+Die E-Mail-Adresse `privatpraxis-despa@web.de` ist eingesetzt und überall als
+`mailto:`-Link ausgeführt: im Kontaktbereich, im Footer und im Impressum.
+
+Die Telefonnummer ist weiterhin Platzhalter:
 
 ```
-grep -rn "\[TELEFON\]\|\[EMAIL\]" seite/
+grep -rn "\[TELEFON\]" seite/
 ```
-
-Aus dem Text der Kundin liegt bereits die Adresse `privatpraxis-despa@web.de` vor. Sie ist
-bewusst nicht eingesetzt, weil für die Praxis vermutlich eine eigene Adresse eingerichtet wird.
 
 ## Rechtliche Hinweise
 
@@ -112,7 +117,7 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 
 - Entscheidung für eine Farbvariante
 - Kurzbeschreibungen zu den sechs Leistungen, je ein bis zwei Sätze
-- Telefonnummer, E-Mail-Adresse und Sprechzeiten
+- Telefonnummer und Sprechzeiten
 - Ablauf eines Termins: die drei Schritte sind noch vollständig Platzhalter
 - Einleitungstexte für Leistungen, Ablauf und Anfahrt
 - Fotos der Praxisräume und ein Portrait

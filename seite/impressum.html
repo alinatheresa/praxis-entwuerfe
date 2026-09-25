@@ -174,7 +174,6 @@
   .kontakt-raster{display:grid;gap:24px}
   @media(min-width:900px){
     .kontakt-raster{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
-    .kontakt-breit{grid-column:1 / -1}
   }
 
   .anfrage-karte{background:linear-gradient(150deg,var(--ton-1) 0%,var(--ton-2) 55%,var(--ton-3-hell) 100%);border:1px solid var(--line);border-radius:var(--radius);padding:32px 24px 36px;box-shadow:var(--schatten)}
@@ -220,13 +219,8 @@
   .kontakt-karte dd span{display:block}
   .kontakt-karte dd a{color:var(--akzent-tief)}
   .maps-link{margin-top:.6rem;font-size:.95rem;font-weight:600}
-
-  .anfahrt-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 36px;box-shadow:var(--schatten)}
-  @media(min-width:900px){.anfahrt-karte{padding:38px 34px 42px}}
-  .anfahrt{display:grid;gap:24px}
-  @media(min-width:900px){.anfahrt{grid-template-columns:repeat(2,1fr);gap:36px}}
-  .anfahrt-titel{font-size:1.1rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .5rem}
-  .anfahrt p{color:var(--ink-soft);font-size:1rem;margin:0}
+  /* Fließtext-Einträge (Anfahrt) etwas leichter als Adresse und Rufnummer */
+  .kontakt-karte dd.fliesstext{font-size:1rem;font-weight:400;line-height:1.65;color:var(--ink-soft)}
 
   .site-foot{background:var(--weiss);border-top:1px solid var(--line);padding:46px 0 54px;color:var(--ink-soft);font-size:.95rem}
   .foot-row{display:grid;gap:26px}

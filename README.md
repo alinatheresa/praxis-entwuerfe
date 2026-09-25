@@ -45,8 +45,8 @@ als Textfarbe durchfällt: `--akzent` ist rein dekorativ, `--akzent-tief` trägt
 ## Kontaktbereich
 
 Formular und Kontaktangaben liegen in einem gemeinsamen Abschnitt mit der ID `#kontakt`.
-Ab 900 px zweispaltig: links die Kontaktangaben, rechts das Formular, darunter über die
-volle Breite die Anfahrt. Darunter einspaltig in derselben Reihenfolge. Einen separaten
+Ab 900 px zweispaltig: links die Kontaktangaben samt Anfahrt, rechts das Formular.
+Darunter einspaltig in derselben Reihenfolge. Einen separaten
 Terminabschnitt gibt es nicht mehr; in der Kopfzeile führt nur noch der hervorgehobene
 Button auf `#kontakt`.
 

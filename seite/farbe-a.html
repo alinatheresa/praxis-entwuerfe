@@ -4,33 +4,64 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa – Entwurf C</title>
+<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Mint & Himmel</title>
 <!--
-  ENTWURF – Variante C "Weich & Modern" (sanfte Verläufe, großzügige Typografie)
+  ENTWURF der Praxisseite. Farbvariante: Mint & Himmel
   Rechtliche Hinweise (bitte bei der Umsetzung beibehalten):
   - Keine Vorher-Nachher-Darstellungen, auch nicht als Bildplatzhalter (§ 11 Abs. 1 Nr. 5 HWG).
-  - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen/Testimonials.
+  - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen.
   - PRÜFEN: "Botox" ist ein Markenname eines verschreibungspflichtigen Arzneimittels.
-    Publikumswerbung dafür ist nach § 10 HWG unzulässig. Siehe Hinweis in mockups/README.md.
-  - Der Button "Termin vereinbaren" ist ein Platzhalter ohne Funktion und verweist auf den
-    abgegrenzten Buchungsbereich (#termin), in den später das externe Widget (z. B. Dr. Flex) kommt.
+    Publikumswerbung dafür ist nach § 10 HWG unzulässig. Siehe README.md.
+  - Das Kontaktformular fragt bewusst KEINE Behandlungen oder Beschwerden strukturiert ab,
+    damit keine Gesundheitsdaten nach Art. 9 DSGVO erhoben werden.
+  - Das Formular versendet noch nichts. Ein Versandweg muss serverseitig ergänzt werden.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+  /* ============================================================
+   FARBPALETTE: Mint & Himmel
+   die aktuelle Farbgebung aus Entwurf 3
+
+   Dies ist die EINZIGE Stelle, an der Farben definiert werden.
+   Um die Farbigkeit der gesamten Seite zu wechseln, wird nur
+   dieser :root-Block durch den einer anderen Variante ersetzt.
+   Alle Werte sind auf WCAG AA (4.5:1) geprüft.
+   ============================================================ */
   :root{
-    --mint:#DFF1EE;
-    --sky:#E4EDF6;
-    --champagner:#E8DCC8;
-    --teal:#2BA39B;
-    --teal-deep:#17756F;
+    /* Helle Grundtöne für Flächen und Verläufe */
+    --ton-1:#DFF1EE;
+    --ton-2:#E4EDF6;
+    --ton-3:#E8DCC8;
+    --ton-3-hell:#F3EFE7;
+
+    /* Akzent */
+    --akzent:#2BA39B;            /* dekorativ, trägt keinen Text */
+    --akzent-tief:#17756F;  /* Buttons, Links, Kleintext */
+    --akzent-weich:#DCEFEC;/* Hintergrund der Label-Pillen */
+
+    /* Text und Flächen */
     --ink:#1B2A2E;
-    --ink-soft:#4C6066;
+    --ink-soft:#46595F;
     --weiss:#FFFFFF;
     --line:#DCE7E7;
+    --fehler:#9E2B20;
+
+    /* Seitenhintergrund */
+    --bg-1:#F7FBFB;
+    --bg-2:#FFFFFF;
+    --bg-3:#F7FAFC;
+    --schatten-rgb:23,58,64;
+  }
+  /* ==================== Ende Farbpalette ==================== */
+
+  :root{
+    /* Strukturwerte, in allen Farbvarianten gleich */
     --radius:28px;
-    --schatten:0 18px 46px -24px rgba(23,58,64,.4);
+    --schleier:rgba(255,255,255,.72);   /* Schleier hinter der Kopfzeile */
+    --schleier-karte:rgba(255,255,255,.7);
+    --schatten:0 18px 46px -24px rgba(var(--schatten-rgb),.4);
     --font:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;
   }
 
@@ -39,17 +70,18 @@
   body{
     margin:0;color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.72;
     background:
-      radial-gradient(1100px 620px at 88% -8%, rgba(228,237,246,.95), transparent 62%),
-      radial-gradient(900px 560px at 4% 6%, rgba(223,241,238,.95), transparent 58%),
-      linear-gradient(180deg,#F7FBFB 0%,#FFFFFF 42%,#F7FAFC 100%);
+      radial-gradient(1100px 620px at 88% -8%, var(--ton-2), transparent 62%),
+      radial-gradient(900px 560px at 4% 6%, var(--ton-1), transparent 58%),
+      linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 42%,var(--bg-3) 100%);
     background-attachment:fixed;
   }
   img{max-width:100%}
-  a{color:var(--teal-deep)}
+  a{color:var(--akzent-tief)}
+  [hidden]{display:none!important}
 
   .skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:12px 20px;z-index:99;text-decoration:none}
   .skip:focus{left:0}
-  :focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+  :focus-visible{outline:2px solid var(--akzent-tief);outline-offset:3px}
 
   .wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:20px}
 
@@ -63,30 +95,30 @@
 
   .entwurf-bar{font-size:.85rem;padding-top:14px}
   .entwurf-bar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  .entwurf-bar a{color:var(--teal-deep);text-decoration:none;font-weight:600}
+  .entwurf-bar a{color:var(--akzent-tief);text-decoration:none;font-weight:600}
   .entwurf-bar span{color:var(--ink-soft)}
 
-  .pill-label{display:inline-block;background:rgba(43,163,155,.13);color:var(--teal-deep);font-size:.78rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin:0 0 1.4rem}
+  .pill-label{display:inline-block;background:var(--akzent-weich);color:var(--akzent-tief);font-size:.78rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin:0 0 1.4rem}
   .lede{font-size:1.18rem;line-height:1.66;color:var(--ink-soft);max-width:48ch;font-weight:500}
 
-  .site-head{position:sticky;top:0;z-index:20;padding:14px 0;backdrop-filter:blur(10px);background:rgba(255,255,255,.72)}
-  .head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--weiss);border:1px solid var(--line);border-radius:999px;padding:12px 12px 12px 26px;box-shadow:0 10px 30px -22px rgba(23,58,64,.5)}
+  .site-head{position:sticky;top:0;z-index:20;padding:14px 0;backdrop-filter:blur(10px);background:var(--schleier)}
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--weiss);border:1px solid var(--line);border-radius:999px;padding:12px 12px 12px 26px;box-shadow:0 10px 30px -22px rgba(var(--schatten-rgb),.5)}
   .brand{text-decoration:none;color:var(--ink);line-height:1.3}
   .brand-over{display:block;font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
   .brand-name{display:block;font-weight:800;font-size:1rem;letter-spacing:-.03em}
   .site-nav{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap}
   .nav-links{display:none;gap:26px;font-size:.95rem;font-weight:500}
   .nav-links a{color:var(--ink-soft);text-decoration:none}
-  .nav-links a:hover{color:var(--teal-deep)}
+  .nav-links a:hover{color:var(--akzent-tief)}
   @media(min-width:960px){.nav-links{display:flex}}
 
-  .btn{display:inline-block;font-weight:600;font-size:.95rem;text-decoration:none;padding:13px 26px;border-radius:999px;border:1px solid transparent;background:var(--teal-deep);color:#fff;transition:transform .16s ease,box-shadow .16s ease;box-shadow:0 12px 26px -16px rgba(23,117,111,.9)}
-  .btn:hover{transform:translateY(-1px);box-shadow:0 16px 30px -16px rgba(23,117,111,.95)}
+  .btn{display:inline-block;font-family:var(--font);font-weight:600;font-size:.95rem;text-decoration:none;padding:13px 26px;border-radius:999px;border:1px solid transparent;background:var(--akzent-tief);color:#fff;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease;box-shadow:0 12px 26px -16px rgba(var(--schatten-rgb),.9)}
+  .btn:hover{transform:translateY(-1px)}
   .btn-soft{background:var(--weiss);color:var(--ink);border-color:var(--line);box-shadow:none}
-  .btn-soft:hover{background:#F3F9F8}
+  .btn-soft:hover{background:var(--ton-1)}
   .btn-lg{padding:16px 34px;font-size:1rem}
 
-  .ph{display:flex;align-items:center;justify-content:center;text-align:center;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(140deg,var(--mint) 0%,var(--sky) 60%,#F3EFE7 100%);color:var(--ink-soft);font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:18px}
+  .ph{display:flex;align-items:center;justify-content:center;text-align:center;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(140deg,var(--ton-1) 0%,var(--ton-2) 60%,var(--ton-3-hell) 100%);color:var(--ink-soft);font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:18px}
   .ph-hero{aspect-ratio:3/2}
   .ph-portrait{aspect-ratio:4/5}
   .ph-map{aspect-ratio:16/9}
@@ -109,59 +141,85 @@
   @media(min-width:680px){.karten{grid-template-columns:repeat(2,1fr);gap:24px}}
   @media(min-width:1020px){.karten{grid-template-columns:repeat(3,1fr)}}
   .karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 34px;box-shadow:var(--schatten);display:flex;flex-direction:column}
-  .karte-punkt{width:46px;height:46px;border-radius:16px;margin-bottom:20px;background:linear-gradient(140deg,var(--mint),var(--sky));border:1px solid var(--line);flex:0 0 auto}
-  .karte:nth-child(2) .karte-punkt{background:linear-gradient(140deg,var(--sky),#EFE7DA)}
-  .karte:nth-child(3) .karte-punkt{background:linear-gradient(140deg,#EFE7DA,var(--mint))}
-  .karte:nth-child(4) .karte-punkt{background:linear-gradient(140deg,var(--mint),#E3EFF2)}
-  .karte:nth-child(5) .karte-punkt{background:linear-gradient(140deg,#E3EFF2,#EFE7DA)}
-  .karte:nth-child(6) .karte-punkt{background:linear-gradient(140deg,var(--sky),var(--mint))}
+  .karte-punkt{width:46px;height:46px;border-radius:16px;margin-bottom:20px;background:linear-gradient(140deg,var(--ton-1),var(--ton-2));border:1px solid var(--line);flex:0 0 auto}
+  .karte:nth-child(2) .karte-punkt{background:linear-gradient(140deg,var(--ton-2),var(--ton-3))}
+  .karte:nth-child(3) .karte-punkt{background:linear-gradient(140deg,var(--ton-3),var(--ton-1))}
+  .karte:nth-child(4) .karte-punkt{background:linear-gradient(140deg,var(--ton-1),var(--ton-3-hell))}
+  .karte:nth-child(5) .karte-punkt{background:linear-gradient(140deg,var(--ton-3-hell),var(--ton-3))}
+  .karte:nth-child(6) .karte-punkt{background:linear-gradient(140deg,var(--ton-2),var(--ton-1))}
   .karte h3{margin-bottom:.45rem}
-  .karte .zusatz{font-size:.9rem;color:var(--teal-deep);font-weight:600;margin:0 0 .7rem}
+  .karte .zusatz{font-size:.9rem;color:var(--akzent-tief);font-weight:600;margin:0 0 .7rem}
   .karte p.beschreibung{color:var(--ink-soft);font-size:.98rem;margin:auto 0 0}
 
-  .ueber-band{background:linear-gradient(160deg,rgba(223,241,238,.85) 0%,rgba(228,237,246,.85) 100%);border-block:1px solid var(--line)}
+  .ueber-band{background:linear-gradient(160deg,var(--ton-1) 0%,var(--ton-2) 100%);border-block:1px solid var(--line)}
   .ueber{display:grid;gap:36px}
   @media(min-width:960px){.ueber{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}}
   .ueber-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--schatten)}
   .ueber-name{font-weight:800;font-size:1.15rem;letter-spacing:-.03em;margin:22px 0 2px;padding-inline:8px}
   .ueber-rolle{color:var(--ink-soft);font-size:.95rem;margin:0 0 8px;padding-inline:8px}
-  .werdegang-titel{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep);font-weight:700;margin:2.4rem 0 1rem}
+  .werdegang-titel{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--akzent-tief);font-weight:700;margin:2.4rem 0 1rem}
   .werdegang{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-  .werdegang li{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:18px;padding:16px 20px;display:grid;gap:2px 20px}
-  .werdegang .jahr{font-weight:800;font-size:.92rem;color:var(--teal-deep);letter-spacing:-.01em}
+  .werdegang li{background:var(--schleier-karte);border:1px solid var(--line);border-radius:18px;padding:16px 20px;display:grid;gap:2px 20px}
+  .werdegang .jahr{font-weight:800;font-size:.92rem;color:var(--akzent-tief);letter-spacing:-.01em}
   .werdegang .was{color:var(--ink-soft);font-size:.97rem;line-height:1.6}
   @media(min-width:640px){.werdegang li{grid-template-columns:100px 1fr;align-items:baseline}}
 
   .schritte{display:grid;gap:20px;margin:0;padding:0;list-style:none}
   @media(min-width:960px){.schritte{grid-template-columns:repeat(3,1fr);gap:26px}}
   .schritt{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px 34px;box-shadow:var(--schatten)}
-  .schritt-nr{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:999px;background:var(--teal-deep);color:#fff;font-weight:800;font-size:1.15rem;margin-bottom:20px}
+  .schritt-nr{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:999px;background:var(--akzent-tief);color:#fff;font-weight:800;font-size:1.15rem;margin-bottom:20px}
   .schritt h3{margin-bottom:.4rem;font-size:1.28rem}
   .schritt p{color:var(--ink-soft);font-size:1rem}
 
-  .termin-karte{background:linear-gradient(150deg,var(--mint) 0%,var(--sky) 55%,#F1EAE0 100%);border:1px solid var(--line);border-radius:36px;padding:44px 26px 46px;text-align:center;box-shadow:var(--schatten)}
-  .termin-karte h2{margin-bottom:1rem}
-  .termin-karte .lede{margin:0 auto 2rem;max-width:44ch}
-  .widget-slot{background:rgba(255,255,255,.82);border:2px dashed rgba(23,117,111,.4);border-radius:22px;padding:40px 22px;color:var(--ink-soft);font-size:.98rem;line-height:1.65;max-width:620px;margin:0 auto}
-  .widget-slot strong{display:block;color:var(--teal-deep);font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:.7rem}
-  @media(min-width:960px){.termin-karte{padding:66px 56px 70px}}
+  /* ---------- Kontaktanfrage ---------- */
+  .anfrage-karte{background:linear-gradient(150deg,var(--ton-1) 0%,var(--ton-2) 55%,var(--ton-3-hell) 100%);border:1px solid var(--line);border-radius:36px;padding:44px 22px 46px;box-shadow:var(--schatten)}
+  @media(min-width:960px){.anfrage-karte{padding:66px 56px 70px}}
+  .anfrage-kopf{text-align:center;max-width:46ch;margin:0 auto 2.2rem}
+  .anfrage-kopf h2{margin-bottom:1rem}
+  .anfrage-kopf .lede{margin-inline:auto}
+
+  .formular{max-width:620px;margin:0 auto}
+  .feld{margin-bottom:20px}
+  .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
+  .optional{font-weight:500;color:var(--ink-soft)}
+  .feld input,.feld textarea{
+    width:100%;font-family:var(--font);font-size:1rem;line-height:1.6;color:var(--ink);
+    background:var(--weiss);border:1px solid var(--line);border-radius:14px;padding:13px 16px;
+  }
+  .feld textarea{min-height:140px;resize:vertical}
+  .feld input:focus-visible,.feld textarea:focus-visible{border-color:var(--akzent-tief);outline-offset:1px}
+  .feld input[aria-invalid="true"],.feld textarea[aria-invalid="true"]{border-color:var(--fehler);border-width:2px}
+  .fehler{color:var(--fehler);font-size:.88rem;font-weight:600;margin:7px 0 0}
+  .formular .btn{width:100%;margin-top:6px}
+  @media(min-width:560px){.formular .btn{width:auto}}
+
+  .formular-hinweis{max-width:620px;margin:22px auto 0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
+  .formular-hinweis a{color:var(--akzent-tief)}
+
+  .bestaetigung{max-width:620px;margin:0 auto;background:var(--weiss);border:1px solid var(--line);border-left:4px solid var(--akzent-tief);border-radius:20px;padding:34px 28px}
+  .bestaetigung h3{color:var(--akzent-tief);margin-bottom:.6rem;font-size:1.3rem}
+  .bestaetigung p{color:var(--ink-soft);font-size:1rem}
+  .entwurfshinweis{margin-top:1.2rem;padding-top:1.2rem;border-top:1px dashed var(--line);font-size:.88rem}
 
   .kontakt{display:grid;gap:26px}
   @media(min-width:960px){.kontakt{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:34px;align-items:start}}
   .kontakt-karte{background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;box-shadow:var(--schatten)}
   .kontakt dl{margin:0}
-  .kontakt dt{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);margin-top:24px}
+  .kontakt dt{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent-tief);margin-top:24px}
   .kontakt dt:first-of-type{margin-top:0}
   .kontakt dd{margin:.3rem 0 0;font-size:1.05rem;font-weight:500}
   .kontakt dd span{display:block}
 
   .site-foot{background:var(--weiss);border-top:1px solid var(--line);padding:46px 0 54px;color:var(--ink-soft);font-size:.95rem}
-  .foot-row{display:flex;flex-direction:column;gap:22px}
+  .foot-row{display:grid;gap:26px}
+  @media(min-width:860px){.foot-row{grid-template-columns:1fr auto;align-items:end}}
   .foot-links{display:flex;gap:24px;flex-wrap:wrap;margin:0}
   .foot-links a{color:var(--ink);text-decoration:none;font-weight:600}
-  .foot-links a:hover{color:var(--teal-deep)}
+  .foot-links a:hover{color:var(--akzent-tief)}
   .foot-brand{font-weight:800;font-size:1.1rem;letter-spacing:-.03em;color:var(--ink);line-height:1.4;margin:0 0 6px;max-width:34ch}
-  @media(min-width:960px){.foot-row{flex-direction:row;justify-content:space-between;align-items:flex-end}}
+  .foot-kontakt{margin:10px 0 0}
+  .foot-kontakt span{display:block}
+
 </style>
 </head>
 <body>
@@ -169,8 +227,8 @@
 
 <div class="entwurf-bar">
   <div class="wrap">
-    <a href="../index.html">← Alle Entwürfe</a>
-    <span>Entwurf C · Weich &amp; Modern</span>
+    <a href="../index.html">Zurück zum Farbvergleich</a>
+    <span>Farbvariante A: Mint & Himmel</span>
   </div>
 </div>
 
@@ -188,7 +246,7 @@
           <a href="#ablauf">Ablauf</a>
           <a href="#kontakt">Kontakt</a>
         </span>
-        <a class="btn" href="#termin">Termin vereinbaren</a>
+        <a class="btn" href="#termin">Termin anfragen</a>
       </nav>
     </div>
   </div>
@@ -202,7 +260,7 @@
       <h1 id="hero-titel">Privatpraxis für Gefäßchirurgie<span class="h1-name">Dr. med. univ. Oana-Raluca Despa</span></h1>
       <p class="lede">Praxis für sonographische Gefäßdiagnostik und minimal-invasive Venentherapie</p>
       <div class="hero-actions">
-        <a class="btn btn-lg" href="#termin">Termin vereinbaren</a>
+        <a class="btn btn-lg" href="#termin">Termin anfragen</a>
         <a class="btn btn-soft btn-lg" href="#leistungen">Leistungen ansehen</a>
       </div>
       <figure class="hero-figure">
@@ -222,34 +280,34 @@
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Sonographischer Gefäß-Check-up</h3>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Minimal-invasive, ultraschallgesteuerte Varizenbehandlung</h3>
           <p class="zusatz">u. a. mittels Mikroschaumsklerosierung</p>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Ästhetische Venentherapie / Besenreiserbehandlung</h3>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Lipödem-/Lymphödemdiagnostik</h3>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Infusionstherapie</h3>
           <p class="zusatz">u. a. nach Long Covid / Burn out</p>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Botox-Behandlung</h3>
-          <p class="beschreibung">[Platzhalter: 1–2 Sätze zur Leistung]</p>
+          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
       </div>
     </div>
@@ -312,12 +370,42 @@
 
   <section id="termin" aria-labelledby="termin-titel" style="padding-top:0">
     <div class="wrap">
-      <div class="termin-karte">
-        <h2 id="termin-titel">Termin vereinbaren</h2>
-        <p class="lede">[Platzhalter: Hinweis zur Terminvergabe, ca. 20 Wörter]</p>
-        <div class="widget-slot">
-          <strong>Reservierter Bereich</strong>
-          [Platzhalter: Online-Terminbuchung – hier wird später das Buchungs-Widget (z. B. Dr. Flex) eingebunden]
+      <div class="anfrage-karte">
+        <div class="anfrage-kopf">
+          <h2 id="termin-titel">Termin anfragen</h2>
+          <p class="lede">[Platzhalter: Hinweis zur Terminvergabe, ca. 20 Wörter]</p>
+        </div>
+
+        <form class="formular" id="kontaktformular" novalidate>
+          <div class="feld">
+            <label for="f-name">Name</label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required aria-required="true" aria-describedby="fehler-f-name">
+            <p class="fehler" id="fehler-f-name" role="alert" hidden></p>
+          </div>
+          <div class="feld">
+            <label for="f-email">E-Mail</label>
+            <input type="email" id="f-email" name="email" autocomplete="email" required aria-required="true" aria-describedby="fehler-f-email">
+            <p class="fehler" id="fehler-f-email" role="alert" hidden></p>
+          </div>
+          <div class="feld">
+            <label for="f-telefon">Telefon <span class="optional">(optional)</span></label>
+            <input type="tel" id="f-telefon" name="telefon" autocomplete="tel" aria-describedby="fehler-f-telefon">
+            <p class="fehler" id="fehler-f-telefon" role="alert" hidden></p>
+          </div>
+          <div class="feld">
+            <label for="f-nachricht">Nachricht</label>
+            <textarea id="f-nachricht" name="nachricht" required aria-required="true" aria-describedby="fehler-f-nachricht"></textarea>
+            <p class="fehler" id="fehler-f-nachricht" role="alert" hidden></p>
+          </div>
+          <button type="submit" class="btn btn-lg">Anfrage senden</button>
+        </form>
+
+        <p class="formular-hinweis" id="formular-hinweis">Bitte geben Sie keine sensiblen Gesundheitsdaten an. Informationen zur Verarbeitung Ihrer Daten finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+
+        <div class="bestaetigung" id="bestaetigung" role="status" tabindex="-1" hidden>
+          <h3>Vielen Dank für Ihre Nachricht.</h3>
+          <p>[Platzhalter: Bestätigungstext, ca. 25 Wörter, zum Beispiel wann mit einer Rückmeldung zu rechnen ist]</p>
+          <p class="entwurfshinweis">[Hinweis für die Umsetzung: Die Anfrage wird derzeit nicht versendet. Vor dem Livegang muss ein Versandweg eingerichtet und in der Datenschutzerklärung beschrieben werden.]</p>
         </div>
       </div>
     </div>
@@ -336,9 +424,9 @@
             <dt>Adresse</dt>
             <dd><span>Sächsische Strasse 70</span><span>10707 Berlin</span></dd>
             <dt>Telefon</dt>
-            <dd>[Platzhalter: Telefonnummer]</dd>
+            <dd>[TELEFON]</dd>
             <dt>E-Mail</dt>
-            <dd><a href="mailto:privatpraxis-despa@web.de">privatpraxis-despa@web.de</a></dd>
+            <dd>[EMAIL]</dd>
             <dt>Sprechzeiten</dt>
             <dd>[Platzhalter: Sprechzeiten]</dd>
           </dl>
@@ -357,13 +445,75 @@
     <div>
       <p class="foot-brand">Privatpraxis für Gefäßchirurgie<br>Dr. med. univ. Oana-Raluca Despa</p>
       <p style="margin:0">Sächsische Strasse 70, 10707 Berlin</p>
+      <p class="foot-kontakt">
+        <span>Telefon: [TELEFON]</span>
+        <span>E-Mail: [EMAIL]</span>
+      </p>
     </div>
     <div>
-      <p class="foot-links"><a href="variante-c-impressum.html">Impressum</a><a href="variante-c-datenschutz.html">Datenschutz</a></p>
+      <p class="foot-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
       <p style="margin:14px 0 0">© 2026 Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa</p>
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var form = document.getElementById('kontaktformular');
+  if(!form){return;}
+  var hinweis = document.getElementById('formular-hinweis');
+  var danke   = document.getElementById('bestaetigung');
+
+  var regeln = [
+    {id:'f-name',      text:'Bitte geben Sie Ihren Namen an.',
+     ok:function(w){return w.trim().length > 0;}},
+    {id:'f-email',     text:'Bitte geben Sie eine gültige E-Mail-Adresse an.',
+     ok:function(w){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(w.trim());}},
+    {id:'f-telefon',   text:'Bitte prüfen Sie die Telefonnummer.',
+     ok:function(w){return w.trim() === '' || /^[0-9+()\/\s.-]{6,}$/.test(w.trim());}},
+    {id:'f-nachricht', text:'Bitte beschreiben Sie kurz Ihr Anliegen.',
+     ok:function(w){return w.trim().length > 0;}}
+  ];
+
+  function markiere(regel, fehlerhaft){
+    var feld = document.getElementById(regel.id);
+    var box  = document.getElementById('fehler-' + regel.id);
+    feld.setAttribute('aria-invalid', fehlerhaft ? 'true' : 'false');
+    box.textContent = fehlerhaft ? regel.text : '';
+    box.hidden = !fehlerhaft;
+  }
+
+  regeln.forEach(function(regel){
+    var feld = document.getElementById(regel.id);
+    feld.addEventListener('input', function(){
+      if(feld.getAttribute('aria-invalid') === 'true' && regel.ok(feld.value)){
+        markiere(regel, false);
+      }
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var erstesFehlerfeld = null;
+    regeln.forEach(function(regel){
+      var feld = document.getElementById(regel.id);
+      var schlecht = !regel.ok(feld.value);
+      markiere(regel, schlecht);
+      if(schlecht && !erstesFehlerfeld){ erstesFehlerfeld = feld; }
+    });
+
+    if(erstesFehlerfeld){
+      erstesFehlerfeld.focus();
+      return;
+    }
+
+    form.hidden = true;
+    if(hinweis){ hinweis.hidden = true; }
+    danke.hidden = false;
+    danke.focus();
+  });
+})();
+</script>
 
 </body>
 </html>

@@ -4,44 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Designentwürfe für die Privatpraxis Dr. med. univ. Oana-Raluca Despa</title>
-<!-- Übersichtsseite für die drei Startseiten-Entwürfe. Nicht für Suchmaschinen freigegeben. -->
+<title>Farbvarianten der Praxisseite Dr. med. univ. Oana-Raluca Despa</title>
+<!-- Vergleichsseite. Die Vorschauen sind eingebettete Kopien der echten Seiten. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;background:#fff;color:#1D2A2E;
-    font-family:"Inter","Helvetica Neue",Arial,sans-serif;
-    font-size:17px;line-height:1.7;
-  }
+  body{margin:0;background:#FBFBFA;color:#1D2A2E;
+    font-family:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.7}
   a{color:#17727F}
   :focus-visible{outline:2px solid #17727F;outline-offset:3px}
 
-  .wrap{width:100%;max-width:640px;margin:0 auto;padding:56px 20px 72px}
-  @media(min-width:700px){.wrap{padding-top:84px}}
+  .wrap{width:100%;max-width:1440px;margin:0 auto;padding:48px 20px 72px}
 
-  .praxis{font-size:.92rem;color:#5B6C71;margin:0 0 28px}
-  h1{font-size:1.9rem;font-weight:600;letter-spacing:-.02em;line-height:1.2;margin:0 0 .6rem}
-  .intro{color:#5B6C71;margin:0}
+  .praxis{font-size:.92rem;color:#5B6C71;margin:0 0 24px}
+  h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:0 0 .6rem}
+  .intro{color:#5B6C71;margin:0;max-width:62ch}
 
-  ul{list-style:none;margin:38px 0 0;padding:0;display:grid;gap:14px}
+  .varianten{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:26px}
+  @media(min-width:820px){.varianten{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1240px){.varianten{grid-template-columns:repeat(3,1fr)}}
 
-  .kasten{
-    display:block;text-decoration:none;color:inherit;
-    background:#F7F9F9;border:1px solid #DDE5E6;border-radius:10px;
-    padding:22px 24px;
-    transition:background .15s ease,border-color .15s ease;
-  }
-  .kasten:hover{background:#EFF5F5;border-color:#17727F}
-  .kasten:hover .titel{color:#17727F}
+  .variante{background:#fff;border:1px solid #E2E7E8;border-radius:14px;padding:20px;display:flex;flex-direction:column}
+  .variante-kopf h2{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .15rem}
+  .unter{color:#5B6C71;font-size:.92rem;margin:0 0 14px}
 
-  .titel{display:block;font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin:0 0 .3rem}
-  .beschreibung{color:#5B6C71;font-size:.98rem;margin:0}
+  .swatches{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 16px;padding:0;
+    font-size:.72rem;color:#7A8A8E;letter-spacing:.02em}
+  .swatches li{display:flex;align-items:center;gap:6px}
+  .swatch{width:16px;height:16px;border-radius:4px;border:1px solid rgba(0,0,0,.12);display:block}
 
-  footer{color:#7A8A8E;font-size:.88rem;margin-top:40px}
+  .rahmen{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
+    border:1px solid #E2E7E8;border-radius:10px;background:#fff}
+  .rahmen iframe{position:absolute;top:0;left:0;width:1280px;height:1700px;border:0;
+    transform:scale(.3);transform-origin:0 0}
+  @media(min-width:520px) and (max-width:819px){.rahmen iframe{transform:scale(.42);width:1280px;height:1500px}}
+
+  .oeffnen{margin-top:16px;font-weight:600;font-size:.95rem;text-decoration:none}
+  .oeffnen:hover{text-decoration:underline}
+
+  .fuss{margin-top:44px;color:#7A8A8E;font-size:.88rem;max-width:70ch}
+  .fuss a{color:#7A8A8E}
 </style>
 </head>
 <body>
@@ -50,37 +55,102 @@
 
   <p class="praxis">Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa</p>
 
-  <h1>Designentwürfe</h1>
-  <p class="intro">Drei Gestaltungsrichtungen für die Startseite. Der Inhalt ist in allen
-    dreien derselbe, es unterscheidet sich nur das Design.</p>
+  <h1>Farbvarianten</h1>
+  <p class="intro">Fünfmal dieselbe Seite, nur mit anderer Farbpalette. Aufbau, Texte und
+    Bildflächen sind überall identisch. Variante A ist die Farbgebung aus dem gewählten Entwurf.</p>
 
-  <ul>
-    <li>
-      <a class="kasten" href="mockups/variante-a.html">
-        <span class="titel">A: Ruhe &amp; Wärme</span>
-        <span class="beschreibung">Erdige Töne, eine leichte Serifenschrift und viel Weißraum.
-          Türkis und Gold nur als leiser Akzent.</span>
-      </a>
-    </li>
-    <li>
-      <a class="kasten" href="mockups/variante-b.html">
-        <span class="titel">B: Klar &amp; Präzise</span>
-        <span class="beschreibung">Tiefes Petrol mit Türkis und dezenten Goldlinien in einem
-          strengen Raster. Die sachlichste der drei Richtungen.</span>
-      </a>
-    </li>
-    <li>
-      <a class="kasten" href="mockups/variante-c.html">
-        <span class="titel">C: Weich &amp; Modern</span>
-        <span class="beschreibung">Sanfte Verläufe aus Mint und Himmelblau, große Typografie
-          und runde Formen. Die freundlichste Richtung.</span>
-      </a>
-    </li>
+  <ul class="varianten">
+      <li class="variante">
+        <div class="variante-kopf">
+          <h2>A: Mint & Himmel</h2>
+          <p class="unter">die aktuelle Farbgebung aus Entwurf 3</p>
+          <ul class="swatches" aria-label="Farbwerte der Variante A">
+            <li><span class="swatch" style="background:#DFF1EE"></span>#DFF1EE</li>
+            <li><span class="swatch" style="background:#E4EDF6"></span>#E4EDF6</li>
+            <li><span class="swatch" style="background:#E8DCC8"></span>#E8DCC8</li>
+            <li><span class="swatch" style="background:#17756F"></span>#17756F</li>
+          </ul>
+        </div>
+        <div class="rahmen">
+          <iframe src="seite/farbe-a.html" title="Vorschau der Farbvariante A: Mint & Himmel"
+                  loading="lazy" scrolling="no"></iframe>
+        </div>
+        <a class="oeffnen" href="seite/farbe-a.html">Variante A ganzseitig öffnen</a>
+      </li>
+      <li class="variante">
+        <div class="variante-kopf">
+          <h2>B: Sand & Salbei</h2>
+          <p class="unter">warm und erdig</p>
+          <ul class="swatches" aria-label="Farbwerte der Variante B">
+            <li><span class="swatch" style="background:#E9E3D6"></span>#E9E3D6</li>
+            <li><span class="swatch" style="background:#DCE5DC"></span>#DCE5DC</li>
+            <li><span class="swatch" style="background:#EFE7DA"></span>#EFE7DA</li>
+            <li><span class="swatch" style="background:#46604F"></span>#46604F</li>
+          </ul>
+        </div>
+        <div class="rahmen">
+          <iframe src="seite/farbe-b.html" title="Vorschau der Farbvariante B: Sand & Salbei"
+                  loading="lazy" scrolling="no"></iframe>
+        </div>
+        <a class="oeffnen" href="seite/farbe-b.html">Variante B ganzseitig öffnen</a>
+      </li>
+      <li class="variante">
+        <div class="variante-kopf">
+          <h2>C: Petrol & Perle</h2>
+          <p class="unter">kühl und klar</p>
+          <ul class="swatches" aria-label="Farbwerte der Variante C">
+            <li><span class="swatch" style="background:#DCE8EB"></span>#DCE8EB</li>
+            <li><span class="swatch" style="background:#E7EBED"></span>#E7EBED</li>
+            <li><span class="swatch" style="background:#E2E7E4"></span>#E2E7E4</li>
+            <li><span class="swatch" style="background:#115C6B"></span>#115C6B</li>
+          </ul>
+        </div>
+        <div class="rahmen">
+          <iframe src="seite/farbe-c.html" title="Vorschau der Farbvariante C: Petrol & Perle"
+                  loading="lazy" scrolling="no"></iframe>
+        </div>
+        <a class="oeffnen" href="seite/farbe-c.html">Variante C ganzseitig öffnen</a>
+      </li>
+      <li class="variante">
+        <div class="variante-kopf">
+          <h2>D: Taupe & Bronze</h2>
+          <p class="unter">neutral, warm, zurückhaltend</p>
+          <ul class="swatches" aria-label="Farbwerte der Variante D">
+            <li><span class="swatch" style="background:#EAE4DC"></span>#EAE4DC</li>
+            <li><span class="swatch" style="background:#E2DDD6"></span>#E2DDD6</li>
+            <li><span class="swatch" style="background:#EFE6D6"></span>#EFE6D6</li>
+            <li><span class="swatch" style="background:#654E2F"></span>#654E2F</li>
+          </ul>
+        </div>
+        <div class="rahmen">
+          <iframe src="seite/farbe-d.html" title="Vorschau der Farbvariante D: Taupe & Bronze"
+                  loading="lazy" scrolling="no"></iframe>
+        </div>
+        <a class="oeffnen" href="seite/farbe-d.html">Variante D ganzseitig öffnen</a>
+      </li>
+      <li class="variante">
+        <div class="variante-kopf">
+          <h2>E: Nachtblau & Leinen</h2>
+          <p class="unter">tief und elegant</p>
+          <ul class="swatches" aria-label="Farbwerte der Variante E">
+            <li><span class="swatch" style="background:#DEE5EF"></span>#DEE5EF</li>
+            <li><span class="swatch" style="background:#E9E5DC"></span>#E9E5DC</li>
+            <li><span class="swatch" style="background:#E3E8EE"></span>#E3E8EE</li>
+            <li><span class="swatch" style="background:#28425F"></span>#28425F</li>
+          </ul>
+        </div>
+        <div class="rahmen">
+          <iframe src="seite/farbe-e.html" title="Vorschau der Farbvariante E: Nachtblau & Leinen"
+                  loading="lazy" scrolling="no"></iframe>
+        </div>
+        <a class="oeffnen" href="seite/farbe-e.html">Variante E ganzseitig öffnen</a>
+      </li>
   </ul>
 
-  <footer>
-    <p>Arbeitsstand 21.09.2026. Texte in eckigen Klammern sind Platzhalter.</p>
-  </footer>
+  <p class="fuss">Die Vorschauen sind verkleinerte Einbettungen der echten Seiten. Für einen
+    genauen Eindruck bitte eine Variante ganzseitig öffnen. Rechtsseiten:
+    <a href="seite/impressum.html">Impressum</a> und
+    <a href="seite/datenschutz.html">Datenschutz</a>.</p>
 
 </div>
 

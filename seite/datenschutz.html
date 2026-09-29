@@ -190,19 +190,23 @@
   .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
   .optional{font-weight:500;color:var(--ink-soft)}
-  .feld input,.feld textarea{
+  .feld input:not([type="checkbox"]),.feld textarea{
     width:100%;font-family:var(--font);font-size:1rem;line-height:1.6;color:var(--ink);
     background:var(--weiss);border:1px solid var(--line);border-radius:14px;padding:13px 16px;
   }
   .feld textarea{min-height:140px;resize:vertical}
   .feld input:focus-visible,.feld textarea:focus-visible{border-color:var(--akzent-tief);outline-offset:1px}
-  .feld input[aria-invalid="true"],.feld textarea[aria-invalid="true"]{border-color:var(--fehler);border-width:2px}
+  .feld input:not([type="checkbox"])[aria-invalid="true"],.feld textarea[aria-invalid="true"]{border-color:var(--fehler);border-width:2px}
+
+  /* Pflicht-Einwilligung */
+  .einwilligung{display:flex;align-items:flex-start;gap:12px}
+  .einwilligung input{flex:0 0 auto;width:20px;height:20px;margin:4px 0 0;accent-color:var(--akzent-tief);cursor:pointer}
+  .einwilligung input[aria-invalid="true"]{outline:2px solid var(--fehler);outline-offset:3px}
+  .feld-einwilligung label{font-weight:400;font-size:.94rem;line-height:1.6;color:var(--ink-soft);margin:0;cursor:pointer}
+  .feld-einwilligung a{color:var(--akzent-tief)}
   .fehler{color:var(--fehler);font-size:.88rem;font-weight:600;margin:7px 0 0}
   .formular .btn{width:100%;margin-top:6px}
   @media(min-width:560px){.formular .btn{width:auto}}
-
-  .formular-hinweis{max-width:620px;margin:22px 0 0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
-  .formular-hinweis a{color:var(--akzent-tief)}
 
   .bestaetigung{max-width:620px;background:var(--weiss);border:1px solid var(--line);border-left:4px solid var(--akzent-tief);border-radius:20px;padding:34px 28px}
   .bestaetigung h3{color:var(--akzent-tief);margin-bottom:.6rem;font-size:1.3rem}
@@ -276,7 +280,7 @@
 <main id="inhalt" class="rechtsseite">
   <div class="wrap rechts-wrap">
     <div class="rechts-karte">
-      <h1>Datenschutzerklärung</h1><div class="hinweisbox"><strong>Platzhalterseite</strong>Diese Seite gehört zum Entwurf und zeigt nur Struktur und Gestaltung. Die Inhalte in eckigen Klammern müssen vor Veröffentlichung juristisch geprüft und ergänzt werden.</div><h2>1. Verantwortliche Stelle</h2><p>[Platzhalter: verantwortliche Stelle im Sinne der DSGVO, Anschrift und Kontaktdaten]</p><h2>2. Datenschutzbeauftragte Person</h2><p>[Platzhalter: Angabe, ob eine datenschutzbeauftragte Person benannt ist, mit Kontaktdaten]</p><h2>3. Erhebung und Verarbeitung personenbezogener Daten</h2><p>[Platzhalter: welche Daten beim Besuch der Website erhoben werden, Rechtsgrundlage und Speicherdauer]</p><h2>4. Hosting und Server-Logfiles</h2><p>[Platzhalter: Hosting-Anbieter, Auftragsverarbeitungsvertrag, Inhalt und Speicherdauer der Logfiles]</p><h2>5. Kontaktformular</h2><p>[Platzhalter: verarbeitete Felder (Name, E-Mail, Telefon, Nachricht), Zweck, Rechtsgrundlage, Empfänger und Löschfristen. Hinweis, dass über das Formular bewusst keine Gesundheitsdaten abgefragt werden und Nutzerinnen und Nutzer gebeten werden, keine anzugeben.]</p><h2>6. Kontaktaufnahme per E-Mail und Telefon</h2><p>[Platzhalter: Verarbeitung von Anfragen per E-Mail und Telefon, Zweck, Rechtsgrundlage und Löschfristen]</p><h2>7. Gesundheitsdaten</h2><p>[Platzhalter: Hinweis zur Verarbeitung besonderer Kategorien personenbezogener Daten nach Art. 9 DSGVO im Rahmen der Behandlung]</p><h2>8. Externe Schriften und Karten</h2><p>[Platzhalter: Hinweis zu Google Fonts, Kartendiensten und eingebundenen Drittinhalten]</p><h2>9. Ihre Rechte</h2><p>[Platzhalter: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit, Beschwerderecht bei der Aufsichtsbehörde]</p><h2>10. Aktualität dieser Erklärung</h2><p>[Platzhalter: Stand der Datenschutzerklärung und Hinweis auf Änderungen]</p>
+      <h1>Datenschutzerklärung</h1><div class="hinweisbox"><strong>Platzhalterseite</strong>Diese Seite gehört zum Entwurf und zeigt nur Struktur und Gestaltung. Die Inhalte in eckigen Klammern müssen vor Veröffentlichung juristisch geprüft und ergänzt werden.</div><h2>1. Verantwortliche Stelle</h2><p>[Platzhalter: verantwortliche Stelle im Sinne der DSGVO, Anschrift und Kontaktdaten]</p><h2>2. Datenschutzbeauftragte Person</h2><p>[Platzhalter: Angabe, ob eine datenschutzbeauftragte Person benannt ist, mit Kontaktdaten]</p><h2>3. Erhebung und Verarbeitung personenbezogener Daten</h2><p>[Platzhalter: welche Daten beim Besuch der Website erhoben werden, Rechtsgrundlage und Speicherdauer]</p><h2>4. Hosting und Server-Logfiles</h2><p>[Platzhalter: Hosting-Anbieter, Auftragsverarbeitungsvertrag, Inhalt und Speicherdauer der Logfiles]</p><h2>5. Kontaktformular und Einwilligung</h2><p>[Platzhalter: verarbeitete Felder (Name, E-Mail, Telefon, Nachricht), Zweck, Empfänger und Löschfristen. Das Formular enthält eine Pflicht-Einwilligung, die auch Gesundheitsdaten umfasst; zu beschreiben sind daher die Rechtsgrundlage nach Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO, wie die Einwilligung dokumentiert wird, wie sie jederzeit widerrufen werden kann und wie die Übertragung verschlüsselt erfolgt.]</p><h2>6. Kontaktaufnahme per E-Mail und Telefon</h2><p>[Platzhalter: Verarbeitung von Anfragen per E-Mail und Telefon, Zweck, Rechtsgrundlage und Löschfristen]</p><h2>7. Gesundheitsdaten</h2><p>[Platzhalter: Hinweis zur Verarbeitung besonderer Kategorien personenbezogener Daten nach Art. 9 DSGVO im Rahmen der Behandlung]</p><h2>8. Externe Schriften und Karten</h2><p>[Platzhalter: Hinweis zu Google Fonts, Kartendiensten und eingebundenen Drittinhalten]</p><h2>9. Ihre Rechte</h2><p>[Platzhalter: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit, Beschwerderecht bei der Aufsichtsbehörde]</p><h2>10. Aktualität dieser Erklärung</h2><p>[Platzhalter: Stand der Datenschutzerklärung und Hinweis auf Änderungen]</p>
     </div>
   </div>
 </main>

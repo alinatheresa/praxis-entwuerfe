@@ -190,19 +190,23 @@
   .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
   .optional{font-weight:500;color:var(--ink-soft)}
-  .feld input,.feld textarea{
+  .feld input:not([type="checkbox"]),.feld textarea{
     width:100%;font-family:var(--font);font-size:1rem;line-height:1.6;color:var(--ink);
     background:var(--weiss);border:1px solid var(--line);border-radius:14px;padding:13px 16px;
   }
   .feld textarea{min-height:140px;resize:vertical}
   .feld input:focus-visible,.feld textarea:focus-visible{border-color:var(--akzent-tief);outline-offset:1px}
-  .feld input[aria-invalid="true"],.feld textarea[aria-invalid="true"]{border-color:var(--fehler);border-width:2px}
+  .feld input:not([type="checkbox"])[aria-invalid="true"],.feld textarea[aria-invalid="true"]{border-color:var(--fehler);border-width:2px}
+
+  /* Pflicht-Einwilligung */
+  .einwilligung{display:flex;align-items:flex-start;gap:12px}
+  .einwilligung input{flex:0 0 auto;width:20px;height:20px;margin:4px 0 0;accent-color:var(--akzent-tief);cursor:pointer}
+  .einwilligung input[aria-invalid="true"]{outline:2px solid var(--fehler);outline-offset:3px}
+  .feld-einwilligung label{font-weight:400;font-size:.94rem;line-height:1.6;color:var(--ink-soft);margin:0;cursor:pointer}
+  .feld-einwilligung a{color:var(--akzent-tief)}
   .fehler{color:var(--fehler);font-size:.88rem;font-weight:600;margin:7px 0 0}
   .formular .btn{width:100%;margin-top:6px}
   @media(min-width:560px){.formular .btn{width:auto}}
-
-  .formular-hinweis{max-width:620px;margin:22px 0 0;font-size:.9rem;line-height:1.6;color:var(--ink-soft)}
-  .formular-hinweis a{color:var(--akzent-tief)}
 
   .bestaetigung{max-width:620px;background:var(--weiss);border:1px solid var(--line);border-left:4px solid var(--akzent-tief);border-radius:20px;padding:34px 28px}
   .bestaetigung h3{color:var(--akzent-tief);margin-bottom:.6rem;font-size:1.3rem}
@@ -435,6 +439,14 @@
           <textarea id="f-nachricht" name="nachricht" required aria-required="true" aria-describedby="fehler-f-nachricht"></textarea>
           <p class="fehler" id="fehler-f-nachricht" role="alert" hidden></p>
         </div>
+        <div class="feld feld-einwilligung">
+          <div class="einwilligung">
+            <input type="checkbox" id="f-einwilligung" name="einwilligung" required aria-required="true" aria-describedby="fehler-f-einwilligung">
+            <label for="f-einwilligung">Ich willige ein, dass meine Angaben, auch soweit sie Gesundheitsdaten enthalten, zur Bearbeitung meiner Anfrage verarbeitet werden. Diese Einwilligung kann ich jederzeit widerrufen. Hinweise finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+          </div>
+          <p class="fehler" id="fehler-f-einwilligung" role="alert" hidden></p>
+        </div>
+
         <div class="hp" aria-hidden="true">
           <label for="f-website">Website (dieses Feld bitte leer lassen)</label>
           <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
@@ -442,8 +454,6 @@
 
         <button type="submit" class="btn btn-lg">Nachricht senden</button>
       </form>
-
-      <p class="formular-hinweis" id="formular-hinweis">Bitte geben Sie keine sensiblen Gesundheitsdaten an. Informationen zur Verarbeitung Ihrer Daten finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
 
       <div class="bestaetigung" id="bestaetigung" role="status" tabindex="-1" hidden>
         <h3>Vielen Dank für Ihre Nachricht.</h3>
@@ -479,8 +489,7 @@
 (function(){
   var form = document.getElementById('kontaktformular');
   if(!form){return;}
-  var hinweis = document.getElementById('formular-hinweis');
-  var danke   = document.getElementById('bestaetigung');
+  var danke = document.getElementById('bestaetigung');
 
   var regeln = [
     {id:'f-name',      text:'Bitte geben Sie Ihren Namen an.',
@@ -490,8 +499,16 @@
     {id:'f-telefon',   text:'Bitte prüfen Sie die Telefonnummer.',
      ok:function(w){return w.trim() === '' || /^[0-9+()\/\s.-]{6,}$/.test(w.trim());}},
     {id:'f-nachricht', text:'Bitte beschreiben Sie kurz Ihr Anliegen.',
-     ok:function(w){return w.trim().length > 0;}}
+     ok:function(w){return w.trim().length > 0;}},
+    {id:'f-einwilligung', text:'Bitte stimmen Sie der Verarbeitung Ihrer Angaben zu.',
+     wert:function(feld){return feld.checked;},
+     ok:function(w){return w === true;}}
   ];
+
+  /* Textfelder liefern ihren Inhalt, die Checkbox ihren Haken. */
+  function wertVon(regel, feld){
+    return regel.wert ? regel.wert(feld) : feld.value;
+  }
 
   function markiere(regel, fehlerhaft){
     var feld = document.getElementById(regel.id);
@@ -503,16 +520,17 @@
 
   regeln.forEach(function(regel){
     var feld = document.getElementById(regel.id);
-    feld.addEventListener('input', function(){
-      if(feld.getAttribute('aria-invalid') === 'true' && regel.ok(feld.value)){
+    var aufraeumen = function(){
+      if(feld.getAttribute('aria-invalid') === 'true' && regel.ok(wertVon(regel, feld))){
         markiere(regel, false);
       }
-    });
+    };
+    feld.addEventListener('input', aufraeumen);
+    feld.addEventListener('change', aufraeumen);
   });
 
   function zeigeBestaetigung(){
     form.hidden = true;
-    if(hinweis){ hinweis.hidden = true; }
     danke.hidden = false;
     danke.focus();
   }
@@ -536,7 +554,7 @@
     var erstesFehlerfeld = null;
     regeln.forEach(function(regel){
       var feld = document.getElementById(regel.id);
-      var schlecht = !regel.ok(feld.value);
+      var schlecht = !regel.ok(wertVon(regel, feld));
       markiere(regel, schlecht);
       if(schlecht && !erstesFehlerfeld){ erstesFehlerfeld = feld; }
     });

@@ -58,11 +58,20 @@ fließen.
 Das Terminbuchungs-Widget ist entfallen. An seiner Stelle steht ein Kontaktformular mit
 Name, E-Mail, Telefon (optional) und Nachricht.
 
-**Bewusst nicht enthalten:** Auswahlfelder zu Behandlungen, Beschwerden oder Diagnosen.
-Solche Felder würden Gesundheitsdaten im Sinne von Art. 9 DSGVO strukturiert erheben, was
-den Aufwand für Rechtsgrundlage, Einwilligung und Verschlüsselung erheblich erhöht. Unter
-dem Formular steht der Hinweis, keine sensiblen Gesundheitsdaten anzugeben, mit Link zur
-Datenschutzerklärung.
+**Keine Auswahlfelder** zu Behandlungen, Beschwerden oder Diagnosen. Gesundheitsdaten
+werden also nicht strukturiert erhoben, können aber im Freitextfeld „Nachricht" stehen.
+
+**Pflicht-Einwilligung:** Vor dem Absende-Button steht eine Checkbox, die ausdrücklich
+auch Gesundheitsdaten einschließt und auf die Datenschutzerklärung verlinkt. Ohne Haken
+lässt sich das Formular nicht absenden.
+
+Daraus folgen Pflichten, die vor dem Livegang erfüllt sein müssen:
+
+- Die Einwilligung muss **dokumentiert** werden (Wortlaut, Zeitpunkt), Art. 7 Abs. 1 DSGVO.
+- Der **Widerruf** muss praktisch möglich sein und so einfach wie die Erteilung.
+- Die **Übertragung muss verschlüsselt** erfolgen. Ein einfacher unverschlüsselter
+  Mailversand an ein web.de-Postfach ist für Gesundheitsdaten nicht ausreichend.
+- **Löschfristen** und Empfänger gehören in die Datenschutzerklärung.
 
 **Spamschutz:** Ein Honeypot-Feld, das per CSS aus dem sichtbaren Bereich geschoben wird,
 `tabindex="-1"` und `autocomplete="off"` trägt und mit `aria-hidden` aus der
@@ -134,5 +143,6 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 - Einleitungstexte für Leistungen, Ablauf und Anfahrt
 - Fotos der Praxisräume und ein Portrait
 - Serverseitige Honeypot-Prüfung zusätzlich zur clientseitigen
+- Verschlüsselter Übertragungsweg und Dokumentation der Einwilligung
 - Versandweg für das Kontaktformular
 - Impressum und Datenschutz juristisch befüllen

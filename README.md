@@ -1,46 +1,47 @@
 # Praxisseite Dr. med. univ. Oana-Raluca Despa
 
-Entwurfsstand 25.09.2026. Basis ist der gewählte Entwurf 3 (modern, weiche Verläufe,
-großzügige Typografie). Die früheren Entwürfe 1 und 2 sind entfallen und stecken nur noch
-in der Git-Historie.
+Entwurfsstand 29.09.2026. Basis ist die Farbpalette Mint und Himmelblau (vormals
+Farbvariante A). Die übrigen Farbvarianten sind entfallen und stecken in der Git-Historie.
+Zur Auswahl stehen jetzt vier **Gestaltungsvarianten** derselben Seite.
 
 ## Aufbau
 
 ```
-index.html              Farbvergleich, alle fünf Varianten nebeneinander
-seite/farbe-a.html      Mint & Himmel      (die Farbgebung des gewählten Entwurfs)
-seite/farbe-b.html      Sand & Salbei      (warm, erdig)
-seite/farbe-c.html      Petrol & Perle     (kühl, klar)
-seite/farbe-d.html      Taupe & Bronze     (neutral, warm, zurückhaltend)
-seite/farbe-e.html      Nachtblau & Leinen (tief, elegant)
+index.html              Übersicht, alle vier Varianten nebeneinander
+seite/stil-a.html       Bänder            (vollflächige Farbwechsel)
+seite/stil-b.html       Versetzt          (editoriales Raster, keine Karten)
+seite/stil-c.html       Organisch         (weiche Formen, runde Kanten)
+seite/stil-d.html       Raster und Kante  (farbige Streifen, Akzentkanten)
 seite/impressum.html    Platzhalterseite
 seite/datenschutz.html  Platzhalterseite
 ```
 
-Die fünf Farbvarianten sind **zeichengleich identisch** bis auf den Farbblock und die
-Variantenbezeichnung in der oberen Leiste. Aufbau, Texte und Bildflächen sind überall dieselben.
+Die vier Varianten sind im HTML **zeichengleich identisch** bis auf die Variantenbezeichnung
+in der oberen Leiste. Inhalt, Abschnittsreihenfolge und Farbpalette sind überall dieselben.
+Unterschiedlich ist ausschließlich ein angehängter Stilblock im Stylesheet.
 
-## Farben wechseln
+## Farben und Stil wechseln
 
-Jede Seite enthält genau einen deutlich markierten Block:
+Jede Seite enthält zwei klar abgegrenzte Blöcke im `<style>`-Tag:
 
-```css
-/* ============================================================
-   FARBPALETTE: Mint & Himmel
-   ...
-   ============================================================ */
-:root{ ... }
-/* ==================== Ende Farbpalette ==================== */
-```
+1. `FARBPALETTE` mit allen Farbwerten. In allen vier Varianten identisch. Außerhalb davon
+   steht kein einziger Farbwert im Stylesheet.
+2. `GESTALTUNGSVARIANTE` am Ende. Nur dieser Block unterscheidet die vier Varianten und
+   überschreibt Layout, Kartenstil, Typografie und Abschnittsflächen.
 
-Um die Farbigkeit der gesamten Seite zu ändern, wird nur dieser Block durch den einer
-anderen Variante ersetzt. Außerhalb davon steht kein einziger Farbwert im Stylesheet.
-Ein zweiter, separater `:root`-Block enthält die Strukturwerte (Radius, Schatten, Schrift),
-die in allen Varianten gleich bleiben.
+Für die finale Seite wird der Stilblock der gewählten Variante behalten und die anderen
+Dateien entfallen.
 
-Alle fünf Paletten sind gegen WCAG AA geprüft: jede Kombination aus Text- und Flächenfarbe
-erreicht mindestens 4,5:1. Der Akzentton kommt in zwei Abstufungen vor, weil der helle Ton
-als Textfarbe durchfällt: `--akzent` ist rein dekorativ, `--akzent-tief` trägt Text.
+Die Palette ist gegen WCAG AA geprüft, einschließlich der neuen Farbflächen: weiße Schrift
+auf dem Petrolband erreicht 5,5:1, der helle Ton darauf 4,7:1, Akzenttext auf dem Mintband
+4,7:1. Der Akzent kommt in zwei Abstufungen vor: `--akzent` ist rein dekorativ,
+`--akzent-tief` trägt Text.
+
+## Das Zitat im Ablauf
+
+In allen vier Varianten in Cormorant Garamond kursiv als Kontrast zur Plus Jakarta Sans,
+jeweils anders gefasst: A über einer kräftigen Linie, B mit hängendem Anführungszeichen,
+C zentriert in einer weichen Fläche, D hinter einer Akzentkante.
 
 ## Kontaktbereich
 
@@ -129,14 +130,15 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 
 - Je eine einzelne HTML-Datei, CSS im `<style>`-Tag, kein Framework, kein Build-Schritt.
 - JavaScript nur für die Formularvalidierung, rund 50 Zeilen, ohne Abhängigkeiten.
-- Einzige externe Ressource: Google Fonts (Plus Jakarta Sans).
-- Mobile-first, geprüft bis 375 px Breite.
+- Externe Ressourcen: Google Fonts (Plus Jakarta Sans, Cormorant Garamond).
+- Mobile-first. Überlauf geprüft bei 750, 900, 1100 und 1280 px sowie im
+  Mobil-Zweig; Chrome headless lässt sich nicht unter 500 px Fensterbreite zwingen.
 - Semantisches HTML, Sprungmarke zum Inhalt, `aria-label` auf allen Bildplatzhaltern.
 - Alle Seiten tragen `<meta name="robots" content="noindex, nofollow">`.
 
 ## Offene Punkte
 
-- Entscheidung für eine Farbvariante
+- Entscheidung für eine Gestaltungsvariante
 - Kurzbeschreibungen zu drei der sieben Leistungen: Varizenbehandlung,
   Lipödem-/Lymphödemdiagnostik und Infusionstherapie
 - Telefonnummer

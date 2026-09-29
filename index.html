@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Farbvarianten der Praxisseite Dr. med. univ. Oana-Raluca Despa</title>
-<!-- Vergleichsseite. Die Vorschauen sind eingebettete Kopien der echten Seiten. -->
+<title>Gestaltungsvarianten der Praxisseite Dr. med. univ. Oana-Raluca Despa</title>
+<!-- Übersichtsseite. Die Vorschauen sind eingebettete Kopien der echten Seiten. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,38 +14,38 @@
   html{-webkit-text-size-adjust:100%}
   body{margin:0;background:#FBFBFA;color:#1D2A2E;
     font-family:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.7}
-  a{color:#17727F}
-  :focus-visible{outline:2px solid #17727F;outline-offset:3px}
+  a{color:#17756F}
+  :focus-visible{outline:2px solid #17756F;outline-offset:3px}
 
-  .wrap{width:100%;max-width:1440px;margin:0 auto;padding:48px 20px 72px}
+  .wrap{width:100%;max-width:1280px;margin:0 auto;padding:48px 20px 72px}
 
   .praxis{font-size:.92rem;color:#5B6C71;margin:0 0 24px}
   h1{font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin:0 0 .6rem}
-  .intro{color:#5B6C71;margin:0;max-width:62ch}
+  .intro{color:#5B6C71;margin:0;max-width:64ch}
 
-  .varianten{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:26px}
-  @media(min-width:820px){.varianten{grid-template-columns:repeat(2,1fr)}}
-  @media(min-width:1240px){.varianten{grid-template-columns:repeat(3,1fr)}}
+  .varianten{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:28px}
+  /* Zwei Spalten: bei vier Spalten wird die Vorschau so schmal, dass die
+     Seite seitlich beschnitten wird und man nur noch den Hero sieht. */
+  @media(min-width:760px){.varianten{grid-template-columns:repeat(2,1fr)}}
 
-  .variante{background:#fff;border:1px solid #E2E7E8;border-radius:14px;padding:20px;display:flex;flex-direction:column}
-  .variante-kopf h2{font-size:1.15rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .15rem}
-  .unter{color:#5B6C71;font-size:.92rem;margin:0 0 14px}
-
-  .swatches{list-style:none;display:flex;flex-wrap:wrap;gap:6px 14px;margin:0 0 16px;padding:0;
-    font-size:.72rem;color:#7A8A8E;letter-spacing:.02em}
-  .swatches li{display:flex;align-items:center;gap:6px}
-  .swatch{width:16px;height:16px;border-radius:4px;border:1px solid rgba(0,0,0,.12);display:block}
-
-  .rahmen{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
+  .variante{background:#fff;border:1px solid #E2E7E8;border-radius:14px;padding:18px;display:flex;flex-direction:column}
+  .vorschau-link{display:block;text-decoration:none}
+  /* Hochformat, damit über den Hero hinaus auch die Abschnitte sichtbar
+     werden, in denen sich die Varianten tatsächlich unterscheiden. */
+  .rahmen{position:relative;display:block;width:100%;aspect-ratio:2/3;overflow:hidden;
     border:1px solid #E2E7E8;border-radius:10px;background:#fff}
-  .rahmen iframe{position:absolute;top:0;left:0;width:1280px;height:1700px;border:0;
-    transform:scale(.3);transform-origin:0 0}
-  @media(min-width:520px) and (max-width:819px){.rahmen iframe{transform:scale(.42);width:1280px;height:1500px}}
+  .rahmen iframe{position:absolute;top:0;left:0;width:1280px;height:3400px;border:0;
+    transform-origin:0 0}
+  @media(min-width:760px){.rahmen iframe{transform:scale(.45)}}
+  @media(max-width:759px){.rahmen iframe{transform:scale(.38)}}
 
-  .oeffnen{margin-top:16px;font-weight:600;font-size:.95rem;text-decoration:none}
-  .oeffnen:hover{text-decoration:underline}
+  .variante-text{padding:18px 4px 4px}
+  .variante-text h2{font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin:0 0 .25rem}
+  .variante-text h2 a{text-decoration:none;color:#1D2A2E}
+  .variante-text h2 a:hover{color:#17756F}
+  .variante-text p{color:#5B6C71;font-size:.96rem;margin:0}
 
-  .fuss{margin-top:44px;color:#7A8A8E;font-size:.88rem;max-width:70ch}
+  .fuss{margin-top:44px;color:#7A8A8E;font-size:.88rem;max-width:72ch}
   .fuss a{color:#7A8A8E}
 </style>
 </head>
@@ -55,100 +55,63 @@
 
   <p class="praxis">Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa</p>
 
-  <h1>Farbvarianten</h1>
-  <p class="intro">Fünfmal dieselbe Seite, nur mit anderer Farbpalette. Aufbau, Texte und
-    Bildflächen sind überall identisch. Variante A ist die Farbgebung aus dem gewählten Entwurf.</p>
+  <h1>Gestaltungsvarianten</h1>
+  <p class="intro">Viermal dieselbe Seite: gleicher Inhalt, gleiche Abschnittsfolge, gleiche Farbpalette
+    aus Mint und Himmelblau. Unterschiedlich ist nur, wie gestaltet wird.</p>
 
   <ul class="varianten">
       <li class="variante">
-        <div class="variante-kopf">
-          <h2>A: Mint & Himmel</h2>
-          <p class="unter">die aktuelle Farbgebung aus Entwurf 3</p>
-          <ul class="swatches" aria-label="Farbwerte der Variante A">
-            <li><span class="swatch" style="background:#DFF1EE"></span>#DFF1EE</li>
-            <li><span class="swatch" style="background:#E4EDF6"></span>#E4EDF6</li>
-            <li><span class="swatch" style="background:#E8DCC8"></span>#E8DCC8</li>
-            <li><span class="swatch" style="background:#17756F"></span>#17756F</li>
-          </ul>
+        <a class="vorschau-link" href="seite/stil-a.html">
+          <span class="rahmen">
+            <iframe src="seite/stil-a.html" title="Vorschau der Gestaltungsvariante A: Bänder"
+                    loading="lazy" scrolling="no" tabindex="-1"></iframe>
+          </span>
+        </a>
+        <div class="variante-text">
+          <h2><a href="seite/stil-a.html">A: Bänder</a></h2>
+          <p>Vollflächige Farbwechsel, linksbündiger Satz, flache Karten</p>
         </div>
-        <div class="rahmen">
-          <iframe src="seite/farbe-a.html" title="Vorschau der Farbvariante A: Mint & Himmel"
-                  loading="lazy" scrolling="no"></iframe>
-        </div>
-        <a class="oeffnen" href="seite/farbe-a.html">Variante A ganzseitig öffnen</a>
       </li>
       <li class="variante">
-        <div class="variante-kopf">
-          <h2>B: Sand & Salbei</h2>
-          <p class="unter">warm und erdig</p>
-          <ul class="swatches" aria-label="Farbwerte der Variante B">
-            <li><span class="swatch" style="background:#E9E3D6"></span>#E9E3D6</li>
-            <li><span class="swatch" style="background:#DCE5DC"></span>#DCE5DC</li>
-            <li><span class="swatch" style="background:#EFE7DA"></span>#EFE7DA</li>
-            <li><span class="swatch" style="background:#46604F"></span>#46604F</li>
-          </ul>
+        <a class="vorschau-link" href="seite/stil-b.html">
+          <span class="rahmen">
+            <iframe src="seite/stil-b.html" title="Vorschau der Gestaltungsvariante B: Versetzt"
+                    loading="lazy" scrolling="no" tabindex="-1"></iframe>
+          </span>
+        </a>
+        <div class="variante-text">
+          <h2><a href="seite/stil-b.html">B: Versetzt</a></h2>
+          <p>Editoriales Raster, keine Karten, starke Größenkontraste</p>
         </div>
-        <div class="rahmen">
-          <iframe src="seite/farbe-b.html" title="Vorschau der Farbvariante B: Sand & Salbei"
-                  loading="lazy" scrolling="no"></iframe>
-        </div>
-        <a class="oeffnen" href="seite/farbe-b.html">Variante B ganzseitig öffnen</a>
       </li>
       <li class="variante">
-        <div class="variante-kopf">
-          <h2>C: Petrol & Perle</h2>
-          <p class="unter">kühl und klar</p>
-          <ul class="swatches" aria-label="Farbwerte der Variante C">
-            <li><span class="swatch" style="background:#DCE8EB"></span>#DCE8EB</li>
-            <li><span class="swatch" style="background:#E7EBED"></span>#E7EBED</li>
-            <li><span class="swatch" style="background:#E2E7E4"></span>#E2E7E4</li>
-            <li><span class="swatch" style="background:#115C6B"></span>#115C6B</li>
-          </ul>
+        <a class="vorschau-link" href="seite/stil-c.html">
+          <span class="rahmen">
+            <iframe src="seite/stil-c.html" title="Vorschau der Gestaltungsvariante C: Organisch"
+                    loading="lazy" scrolling="no" tabindex="-1"></iframe>
+          </span>
+        </a>
+        <div class="variante-text">
+          <h2><a href="seite/stil-c.html">C: Organisch</a></h2>
+          <p>Weiche Formen, runde Abschnittskanten, ohne Rahmen</p>
         </div>
-        <div class="rahmen">
-          <iframe src="seite/farbe-c.html" title="Vorschau der Farbvariante C: Petrol & Perle"
-                  loading="lazy" scrolling="no"></iframe>
-        </div>
-        <a class="oeffnen" href="seite/farbe-c.html">Variante C ganzseitig öffnen</a>
       </li>
       <li class="variante">
-        <div class="variante-kopf">
-          <h2>D: Taupe & Bronze</h2>
-          <p class="unter">neutral, warm, zurückhaltend</p>
-          <ul class="swatches" aria-label="Farbwerte der Variante D">
-            <li><span class="swatch" style="background:#EAE4DC"></span>#EAE4DC</li>
-            <li><span class="swatch" style="background:#E2DDD6"></span>#E2DDD6</li>
-            <li><span class="swatch" style="background:#EFE6D6"></span>#EFE6D6</li>
-            <li><span class="swatch" style="background:#654E2F"></span>#654E2F</li>
-          </ul>
+        <a class="vorschau-link" href="seite/stil-d.html">
+          <span class="rahmen">
+            <iframe src="seite/stil-d.html" title="Vorschau der Gestaltungsvariante D: Raster und Kante"
+                    loading="lazy" scrolling="no" tabindex="-1"></iframe>
+          </span>
+        </a>
+        <div class="variante-text">
+          <h2><a href="seite/stil-d.html">D: Raster und Kante</a></h2>
+          <p>Farbige Streifen, flache Karten mit Akzentkante</p>
         </div>
-        <div class="rahmen">
-          <iframe src="seite/farbe-d.html" title="Vorschau der Farbvariante D: Taupe & Bronze"
-                  loading="lazy" scrolling="no"></iframe>
-        </div>
-        <a class="oeffnen" href="seite/farbe-d.html">Variante D ganzseitig öffnen</a>
-      </li>
-      <li class="variante">
-        <div class="variante-kopf">
-          <h2>E: Nachtblau & Leinen</h2>
-          <p class="unter">tief und elegant</p>
-          <ul class="swatches" aria-label="Farbwerte der Variante E">
-            <li><span class="swatch" style="background:#DEE5EF"></span>#DEE5EF</li>
-            <li><span class="swatch" style="background:#E9E5DC"></span>#E9E5DC</li>
-            <li><span class="swatch" style="background:#E3E8EE"></span>#E3E8EE</li>
-            <li><span class="swatch" style="background:#28425F"></span>#28425F</li>
-          </ul>
-        </div>
-        <div class="rahmen">
-          <iframe src="seite/farbe-e.html" title="Vorschau der Farbvariante E: Nachtblau & Leinen"
-                  loading="lazy" scrolling="no"></iframe>
-        </div>
-        <a class="oeffnen" href="seite/farbe-e.html">Variante E ganzseitig öffnen</a>
       </li>
   </ul>
 
-  <p class="fuss">Die Vorschauen sind verkleinerte Einbettungen der echten Seiten. Für einen
-    genauen Eindruck bitte eine Variante ganzseitig öffnen. Rechtsseiten:
+  <p class="fuss">Die Vorschauen sind verkleinerte Einbettungen der echten Seiten. Für einen genauen
+    Eindruck bitte eine Variante öffnen. Rechtsseiten:
     <a href="seite/impressum.html">Impressum</a> und
     <a href="seite/datenschutz.html">Datenschutz</a>.</p>
 

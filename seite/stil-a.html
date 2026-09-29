@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Petrol & Perle</title>
+<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Gestaltung Bänder</title>
 <!--
-  ENTWURF der Praxisseite. Farbvariante: Petrol & Perle
+  ENTWURF der Praxisseite. Gestaltungsvariante A: Bänder
   Rechtliche Hinweise (bitte bei der Umsetzung beibehalten):
   - Keine Vorher-Nachher-Darstellungen, auch nicht als Bildplatzhalter (§ 11 Abs. 1 Nr. 5 HWG).
   - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen.
@@ -18,11 +18,11 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-   FARBPALETTE: Petrol & Perle
-   kühl und klar
+   FARBPALETTE: Mint & Himmel
+   die aktuelle Farbgebung aus Entwurf 3
 
    Dies ist die EINZIGE Stelle, an der Farben definiert werden.
    Um die Farbigkeit der gesamten Seite zu wechseln, wird nur
@@ -31,28 +31,28 @@
    ============================================================ */
   :root{
     /* Helle Grundtöne für Flächen und Verläufe */
-    --ton-1:#DCE8EB;
-    --ton-2:#E7EBED;
-    --ton-3:#E2E7E4;
-    --ton-3-hell:#EFF3F2;
+    --ton-1:#DFF1EE;
+    --ton-2:#E4EDF6;
+    --ton-3:#E8DCC8;
+    --ton-3-hell:#F3EFE7;
 
     /* Akzent */
-    --akzent:#2E7E8C;            /* dekorativ, trägt keinen Text */
-    --akzent-tief:#115C6B;  /* Buttons, Links, Kleintext */
-    --akzent-weich:#DAE9ED;/* Hintergrund der Label-Pillen */
+    --akzent:#2BA39B;            /* dekorativ, trägt keinen Text */
+    --akzent-tief:#17756F;  /* Buttons, Links, Kleintext */
+    --akzent-weich:#DCEFEC;/* Hintergrund der Label-Pillen */
 
     /* Text und Flächen */
-    --ink:#14242A;
-    --ink-soft:#455760;
+    --ink:#1B2A2E;
+    --ink-soft:#46595F;
     --weiss:#FFFFFF;
-    --line:#D9E2E5;
+    --line:#DCE7E7;
     --fehler:#9E2B20;
 
     /* Seitenhintergrund */
-    --bg-1:#F6FAFB;
+    --bg-1:#F7FBFB;
     --bg-2:#FFFFFF;
-    --bg-3:#F5F8F9;
-    --schatten-rgb:17,58,68;
+    --bg-3:#F7FAFC;
+    --schatten-rgb:23,58,64;
   }
   /* ==================== Ende Farbpalette ==================== */
 
@@ -242,6 +242,76 @@
   .foot-kontakt{margin:10px 0 0}
   .foot-kontakt span{display:block}
 
+
+  /* ============================================================
+     GESTALTUNGSVARIANTE: Bänder
+     Vollflächige Farbwechsel, linksbündiger Satz, flache Karten
+
+     Farbpalette und HTML sind in allen vier Varianten identisch.
+     Alles Folgende überschreibt nur die Gestaltung.
+     ============================================================ */
+  :root{--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+  /* Lange Komposita wie "Lipödem-/Lymphödemdiagnostik" sprengen schmale
+     Spalten. Silbentrennung (lang="de" steht am html-Element) plus Umbruch
+     als Sicherheitsnetz. */
+  .karte h3,.schritt h3,.karte .zusatz{overflow-wrap:break-word;hyphens:auto}
+  .zitat p{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+  .zitat figcaption{font-family:var(--font)}
+
+  /* --- Vollflächige Farbbänder im Wechsel, linksbündiger Satz --- */
+  .hero{text-align:left}
+  .hero .pill-label,.hero .lede{margin-inline:0}
+  .hero .lede{max-width:40ch}
+  .hero-actions{justify-content:flex-start}
+  h1{font-size:clamp(2.3rem,8.4vw,4.8rem);line-height:1}
+  h2{font-size:clamp(2.1rem,6.4vw,3.5rem)}
+  .sec-head.zentriert{margin-inline:0;text-align:left;max-width:48ch}
+  .zentriert .lede{margin-inline:0}
+
+  #leistungen{background:var(--akzent-tief)}
+  #ueber.ueber-band{background:var(--bg-1);border-block:1px solid var(--line)}
+  #ablauf{background:var(--ton-1);border-block:1px solid var(--line)}
+
+  /* Leistungen auf dem Band: keine Karten, nur feine Linien */
+  #leistungen h2{color:#fff}
+  #leistungen .lede{color:var(--ton-1)}
+  #leistungen .pill-label{background:transparent;color:var(--ton-1);border:1px solid var(--ton-1)}
+  #leistungen .karten{gap:0}
+  @media(min-width:680px){#leistungen .karten{gap:0 56px}}
+  #leistungen .karte{background:none;border:0;border-top:1px solid var(--ton-1);border-radius:0;
+    box-shadow:none;padding:26px 0 30px}
+  #leistungen .karte-punkt{display:none}
+  #leistungen .karte h3{color:#fff;font-size:1.12rem}
+  #leistungen .karte .zusatz{color:var(--ton-1);font-weight:500}
+  #leistungen .karte p.beschreibung{color:var(--ton-1)}
+
+  /* Über mich: Portrait ohne Rahmen, Werdegang als reine Liste */
+  .ueber-karte{background:none;border:0;box-shadow:none;padding:0}
+  .ueber-name,.ueber-rolle{padding-inline:0}
+  .werdegang li{background:none;border:0;border-top:1px solid var(--line);border-radius:0;padding:14px 0}
+
+  /* Ablauf auf Mintband: Schritte ohne Karte, große Ziffern */
+  #ablauf .schritt{background:none;border:0;box-shadow:none;border-radius:0;padding:0}
+  #ablauf .schritt-nr{width:auto;height:auto;background:none;border-radius:0;color:var(--akzent-tief);
+    font-size:3.4rem;line-height:1;margin-bottom:6px}
+
+  /* Zitat: Serifenkursiv über einer kräftigen Linie */
+  .zitat{margin:0 0 52px;max-width:30ch;text-align:left;border-top:2px solid var(--akzent-tief);padding-top:26px}
+  .zitat p{font-size:clamp(1.7rem,4.8vw,2.8rem);line-height:1.16;color:var(--akzent-tief)}
+  .zitat p::before{content:"\201E"}
+  .zitat p::after{content:"\201C"}
+  .zitat figcaption{margin-top:.9rem;color:var(--ink-soft)}
+
+  /* Karten flach */
+  .kontakt-karte,.anfrage-karte{box-shadow:none;border:1px solid var(--line)}
+  .anfrage-karte{background:var(--ton-2)}
+
+  /* Footer als dunkles Schlussband */
+  .site-foot{background:var(--ink);color:var(--ton-1);border-top:0}
+  .site-foot .foot-brand{color:#fff}
+  .foot-links a{color:#fff}
+  .foot-links a:hover{color:var(--ton-1)}
+
 </style>
 </head>
 <body>
@@ -249,8 +319,8 @@
 
 <div class="entwurf-bar">
   <div class="wrap">
-    <a href="../index.html">Zurück zum Farbvergleich</a>
-    <span>Farbvariante C: Petrol & Perle</span>
+    <a href="../index.html">Zurück zur Übersicht</a>
+    <span>Gestaltung A: Bänder</span>
   </div>
 </div>
 

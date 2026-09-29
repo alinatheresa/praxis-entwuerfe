@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Mint & Himmel</title>
+<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Gestaltung Raster und Kante</title>
 <!--
-  ENTWURF der Praxisseite. Farbvariante: Mint & Himmel
+  ENTWURF der Praxisseite. Gestaltungsvariante D: Raster und Kante
   Rechtliche Hinweise (bitte bei der Umsetzung beibehalten):
   - Keine Vorher-Nachher-Darstellungen, auch nicht als Bildplatzhalter (§ 11 Abs. 1 Nr. 5 HWG).
   - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen.
@@ -18,7 +18,7 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
    FARBPALETTE: Mint & Himmel
@@ -242,6 +242,76 @@
   .foot-kontakt{margin:10px 0 0}
   .foot-kontakt span{display:block}
 
+
+  /* ============================================================
+     GESTALTUNGSVARIANTE: Raster und Kante
+     Farbige Streifen, flache Karten mit Akzentkante
+
+     Farbpalette und HTML sind in allen vier Varianten identisch.
+     Alles Folgende überschreibt nur die Gestaltung.
+     ============================================================ */
+  :root{--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+  /* Lange Komposita wie "Lipödem-/Lymphödemdiagnostik" sprengen schmale
+     Spalten. Silbentrennung (lang="de" steht am html-Element) plus Umbruch
+     als Sicherheitsnetz. */
+  .karte h3,.schritt h3,.karte .zusatz{overflow-wrap:break-word;hyphens:auto}
+  .zitat p{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+  .zitat figcaption{font-family:var(--font)}
+
+  /* --- Raster und Kante: flache Flächen, farbige Streifen --- */
+  h1{font-size:clamp(2rem,6.8vw,3.9rem);letter-spacing:-.04em}
+  h2{font-size:clamp(1.9rem,5.4vw,2.9rem)}
+  .lede{font-size:1.06rem}
+
+  /* Farbiger Streifen an jeder Abschnittskante */
+  main > section + section{position:relative}
+  main > section + section::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;
+    background:var(--akzent-tief)}
+  #leistungen{background:var(--ton-2)}
+  #ueber.ueber-band{background:var(--weiss);border-block:0}
+  #ablauf{background:var(--ton-1)}
+  #kontakt{background:var(--weiss)}
+
+  /* Abschnittsköpfe linksbündig mit Quadratmarke */
+  .sec-head.zentriert{margin-inline:0;text-align:left;max-width:52ch}
+  .zentriert .lede{margin-inline:0}
+  .pill-label{background:none;border-radius:0;padding:0;color:var(--akzent-tief);
+    display:flex;align-items:center;gap:10px;letter-spacing:.16em}
+  .pill-label::before{content:"";width:11px;height:11px;background:var(--akzent-tief);flex:0 0 auto}
+  .hero{text-align:left}
+  .hero .pill-label,.hero .lede{margin-inline:0}
+  .hero-actions{justify-content:flex-start}
+
+  /* Karten flach mit farbiger Kante */
+  .karte{border-radius:10px;box-shadow:none;border:1px solid var(--line);
+    border-left:4px solid var(--akzent-tief);background:var(--weiss);padding:26px 24px 28px}
+  .karte-punkt{width:26px;height:26px;border-radius:3px;border:0;background:var(--akzent-tief);margin-bottom:16px}
+  .karte:nth-child(n) .karte-punkt{background:var(--akzent-tief)}
+  .karte h3{font-size:1.1rem}
+
+  .schritt{border-radius:10px;box-shadow:none;border:1px solid var(--line);
+    border-top:4px solid var(--akzent-tief);background:var(--weiss)}
+  .schritt-nr{border-radius:4px}
+
+  .ueber-karte,.kontakt-karte,.anfrage-karte{border-radius:10px;box-shadow:none;border:1px solid var(--line)}
+  .anfrage-karte{background:var(--ton-2);border-left:4px solid var(--akzent-tief)}
+  .kontakt-karte{border-left:4px solid var(--akzent-tief)}
+  .werdegang li{border-radius:6px;background:var(--weiss);border-left:3px solid var(--line)}
+  .ph{border-radius:8px}
+  .btn{border-radius:6px;box-shadow:none}
+  .head-row{border-radius:8px}
+  .feld input:not([type="checkbox"]),.feld textarea{border-radius:6px}
+  .bestaetigung{border-radius:8px}
+
+  /* Zitat: Serifenkursiv hinter kräftiger Kante */
+  .zitat{margin:0 0 46px;max-width:38ch;text-align:left;border-left:4px solid var(--akzent-tief);
+    padding:4px 0 4px 26px}
+  .zitat p{font-size:clamp(1.5rem,4vw,2.35rem);line-height:1.2;color:var(--ink)}
+  .zitat figcaption{margin-top:.9rem;color:var(--akzent-tief)}
+
+  .site-foot{background:var(--ton-2);border-top:0;position:relative}
+  .site-foot::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:var(--akzent-tief)}
+
 </style>
 </head>
 <body>
@@ -249,8 +319,8 @@
 
 <div class="entwurf-bar">
   <div class="wrap">
-    <a href="../index.html">Zurück zum Farbvergleich</a>
-    <span>Farbvariante A: Mint & Himmel</span>
+    <a href="../index.html">Zurück zur Übersicht</a>
+    <span>Gestaltung D: Raster und Kante</span>
   </div>
 </div>
 

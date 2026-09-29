@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Nachtblau & Leinen</title>
+<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Gestaltung Versetzt</title>
 <!--
-  ENTWURF der Praxisseite. Farbvariante: Nachtblau & Leinen
+  ENTWURF der Praxisseite. Gestaltungsvariante B: Versetzt
   Rechtliche Hinweise (bitte bei der Umsetzung beibehalten):
   - Keine Vorher-Nachher-Darstellungen, auch nicht als Bildplatzhalter (§ 11 Abs. 1 Nr. 5 HWG).
   - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen.
@@ -18,11 +18,11 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-   FARBPALETTE: Nachtblau & Leinen
-   tief und elegant
+   FARBPALETTE: Mint & Himmel
+   die aktuelle Farbgebung aus Entwurf 3
 
    Dies ist die EINZIGE Stelle, an der Farben definiert werden.
    Um die Farbigkeit der gesamten Seite zu wechseln, wird nur
@@ -31,28 +31,28 @@
    ============================================================ */
   :root{
     /* Helle Grundtöne für Flächen und Verläufe */
-    --ton-1:#DEE5EF;
-    --ton-2:#E9E5DC;
-    --ton-3:#E3E8EE;
-    --ton-3-hell:#F2EFE8;
+    --ton-1:#DFF1EE;
+    --ton-2:#E4EDF6;
+    --ton-3:#E8DCC8;
+    --ton-3-hell:#F3EFE7;
 
     /* Akzent */
-    --akzent:#3C5C86;            /* dekorativ, trägt keinen Text */
-    --akzent-tief:#28425F;  /* Buttons, Links, Kleintext */
-    --akzent-weich:#DFE6F0;/* Hintergrund der Label-Pillen */
+    --akzent:#2BA39B;            /* dekorativ, trägt keinen Text */
+    --akzent-tief:#17756F;  /* Buttons, Links, Kleintext */
+    --akzent-weich:#DCEFEC;/* Hintergrund der Label-Pillen */
 
     /* Text und Flächen */
-    --ink:#1C2530;
-    --ink-soft:#4B5663;
+    --ink:#1B2A2E;
+    --ink-soft:#46595F;
     --weiss:#FFFFFF;
-    --line:#DCE0E6;
+    --line:#DCE7E7;
     --fehler:#9E2B20;
 
     /* Seitenhintergrund */
-    --bg-1:#F8FAFC;
+    --bg-1:#F7FBFB;
     --bg-2:#FFFFFF;
-    --bg-3:#F8F7F3;
-    --schatten-rgb:28,40,56;
+    --bg-3:#F7FAFC;
+    --schatten-rgb:23,58,64;
   }
   /* ==================== Ende Farbpalette ==================== */
 
@@ -242,6 +242,100 @@
   .foot-kontakt{margin:10px 0 0}
   .foot-kontakt span{display:block}
 
+
+  /* ============================================================
+     GESTALTUNGSVARIANTE: Versetzt
+     Editoriales Raster, keine Karten, starke Größenkontraste
+
+     Farbpalette und HTML sind in allen vier Varianten identisch.
+     Alles Folgende überschreibt nur die Gestaltung.
+     ============================================================ */
+  :root{--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+  /* Lange Komposita wie "Lipödem-/Lymphödemdiagnostik" sprengen schmale
+     Spalten. Silbentrennung (lang="de" steht am html-Element) plus Umbruch
+     als Sicherheitsnetz. */
+  .karte h3,.schritt h3,.karte .zusatz{overflow-wrap:break-word;hyphens:auto}
+  .zitat p{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+  .zitat figcaption{font-family:var(--font)}
+
+  /* --- Versetztes, editoriales Layout ohne Karten --- */
+  body{font-size:16px}
+  h1{font-size:clamp(2.2rem,8vw,4.4rem);line-height:1.02}
+  h2{font-size:clamp(2.1rem,7vw,4rem);letter-spacing:-.045em}
+  .lede{font-size:1.05rem}
+
+  /* Weiche Form hinter der Seite */
+  body::before{content:"";position:fixed;z-index:-1;pointer-events:none;
+    top:-14vh;right:-16vw;width:min(72vw,760px);aspect-ratio:1/1.1;
+    background:radial-gradient(ellipse at 45% 45%,var(--ton-1),transparent 66%);
+    border-radius:56% 44% 49% 51% / 44% 46% 54% 56%;opacity:.9}
+
+  .hero{text-align:left}
+  .hero .pill-label,.hero .lede{margin-inline:0}
+  .hero-actions{justify-content:flex-start}
+  .hero-figure{margin-left:0;max-width:74%}
+
+  .sec-head.zentriert{margin-inline:0;text-align:left;max-width:30ch}
+  .zentriert .lede{margin-inline:0}
+
+  /* Kopf links, Inhalt rechts versetzt */
+  @media(min-width:1000px){
+    #leistungen .wrap,#ablauf .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);
+      gap:16px 64px;align-items:start}
+    #leistungen .sec-head,#ablauf .sec-head{grid-column:1;grid-row:1;position:sticky;top:118px;margin-bottom:0}
+    #leistungen .karten,#ablauf .zitat,#ablauf .schritte{grid-column:2}
+    /* In der schmaleren Inhaltsspalte reichen zwei Spalten, sonst laufen
+       die langen Leistungstitel über den rechten Rand hinaus. */
+    #leistungen .karten{grid-template-columns:repeat(2,minmax(0,1fr))}
+    #kontakt .sec-head{max-width:34ch}
+  }
+
+  /* Leistungen als nummerierte Liste statt Karten */
+  #leistungen .karten{counter-reset:leistung;gap:0 56px}
+  #leistungen .karte{counter-increment:leistung;position:relative;min-width:0;padding:24px 0 26px 46px;
+    background:none;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none}
+  #leistungen .karte::before{content:counter(leistung,decimal-leading-zero);position:absolute;left:0;top:27px;
+    font-size:.76rem;font-weight:700;letter-spacing:.12em;color:var(--akzent-tief)}
+  #leistungen .karte-punkt{display:none}
+  #leistungen .karte h3{font-size:1.24rem}
+
+  /* Über mich: Portrait schmal und nach unten versetzt */
+  .ueber-band{background:none;border-block:1px solid var(--line)}
+  .ueber-karte{background:none;border:0;box-shadow:none;padding:0}
+  .ueber-name,.ueber-rolle{padding-inline:0}
+  @media(min-width:960px){.ueber{align-items:end}.ueber-karte{max-width:78%}}
+  .werdegang li{background:none;border:0;border-left:2px solid var(--line);border-radius:0;
+    padding:6px 0 18px 22px;gap:2px 0}
+  @media(min-width:640px){.werdegang li{grid-template-columns:1fr}}
+  .werdegang .jahr{margin-bottom:2px}
+
+  /* Ablauf als gestapelte Zeilen */
+  #ablauf .schritte{grid-template-columns:1fr;gap:0}
+  #ablauf .schritt{background:none;border:0;border-top:1px solid var(--line);border-radius:0;
+    box-shadow:none;padding:24px 0;display:grid;grid-template-columns:76px 1fr;gap:0 20px;align-items:start}
+  #ablauf .schritt-nr{width:auto;height:auto;background:none;border-radius:0;color:var(--akzent-tief);
+    font-size:2.8rem;line-height:.92;margin:0;grid-column:1;grid-row:1 / span 2}
+  /* Ohne feste Zuweisung landet der Beschreibungstext in der schmalen Ziffernspalte. */
+  #ablauf .schritt h3{grid-column:2;grid-row:1}
+  #ablauf .schritt p{grid-column:2;grid-row:2}
+
+  /* Zitat: hängendes Anführungszeichen, linksbündig */
+  .zitat{margin:0 0 48px;max-width:26ch;text-align:left;position:relative;padding-left:54px}
+  .zitat::before{content:"\201E";position:absolute;left:-2px;top:6px;font-family:var(--serif);
+    font-size:4.6rem;line-height:1;color:var(--ton-1)}
+  .zitat p{font-size:clamp(1.5rem,3.8vw,2.3rem);line-height:1.2;color:var(--ink)}
+  .zitat figcaption{margin-top:1rem;color:var(--ink-soft)}
+
+  /* Kontakt ohne Karten, Formular als ruhige Fläche */
+  .kontakt-karte{background:none;border:0;box-shadow:none;padding:0}
+  .anfrage-karte{background:var(--ton-2);border:0;box-shadow:none;border-radius:20px}
+  .feld input:not([type="checkbox"]),.feld textarea{border-radius:8px}
+  .btn{border-radius:8px;box-shadow:none}
+  .head-row{border-radius:10px}
+  .pill-label{border-radius:4px}
+  .ph{border-radius:8px}
+  .site-foot{background:none;border-top:1px solid var(--line)}
+
 </style>
 </head>
 <body>
@@ -249,8 +343,8 @@
 
 <div class="entwurf-bar">
   <div class="wrap">
-    <a href="../index.html">Zurück zum Farbvergleich</a>
-    <span>Farbvariante E: Nachtblau & Leinen</span>
+    <a href="../index.html">Zurück zur Übersicht</a>
+    <span>Gestaltung B: Versetzt</span>
   </div>
 </div>
 

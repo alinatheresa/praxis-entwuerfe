@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Taupe & Bronze</title>
+<title>Privatpraxis für Gefäßchirurgie Dr. med. univ. Oana-Raluca Despa | Gestaltung Organisch</title>
 <!--
-  ENTWURF der Praxisseite. Farbvariante: Taupe & Bronze
+  ENTWURF der Praxisseite. Gestaltungsvariante C: Organisch
   Rechtliche Hinweise (bitte bei der Umsetzung beibehalten):
   - Keine Vorher-Nachher-Darstellungen, auch nicht als Bildplatzhalter (§ 11 Abs. 1 Nr. 5 HWG).
   - Keine Heilversprechen, keine Erfolgsgarantien, keine Patientenbewertungen.
@@ -18,11 +18,11 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-   FARBPALETTE: Taupe & Bronze
-   neutral, warm, zurückhaltend
+   FARBPALETTE: Mint & Himmel
+   die aktuelle Farbgebung aus Entwurf 3
 
    Dies ist die EINZIGE Stelle, an der Farben definiert werden.
    Um die Farbigkeit der gesamten Seite zu wechseln, wird nur
@@ -31,28 +31,28 @@
    ============================================================ */
   :root{
     /* Helle Grundtöne für Flächen und Verläufe */
-    --ton-1:#EAE4DC;
-    --ton-2:#E2DDD6;
-    --ton-3:#EFE6D6;
-    --ton-3-hell:#F5EEE2;
+    --ton-1:#DFF1EE;
+    --ton-2:#E4EDF6;
+    --ton-3:#E8DCC8;
+    --ton-3-hell:#F3EFE7;
 
     /* Akzent */
-    --akzent:#9A7B52;            /* dekorativ, trägt keinen Text */
-    --akzent-tief:#654E2F;  /* Buttons, Links, Kleintext */
-    --akzent-weich:#EBE1D2;/* Hintergrund der Label-Pillen */
+    --akzent:#2BA39B;            /* dekorativ, trägt keinen Text */
+    --akzent-tief:#17756F;  /* Buttons, Links, Kleintext */
+    --akzent-weich:#DCEFEC;/* Hintergrund der Label-Pillen */
 
     /* Text und Flächen */
-    --ink:#2B2622;
-    --ink-soft:#585049;
+    --ink:#1B2A2E;
+    --ink-soft:#46595F;
     --weiss:#FFFFFF;
-    --line:#DED7CC;
+    --line:#DCE7E7;
     --fehler:#9E2B20;
 
     /* Seitenhintergrund */
-    --bg-1:#FAF8F5;
+    --bg-1:#F7FBFB;
     --bg-2:#FFFFFF;
-    --bg-3:#F7F4EF;
-    --schatten-rgb:70,58,44;
+    --bg-3:#F7FAFC;
+    --schatten-rgb:23,58,64;
   }
   /* ==================== Ende Farbpalette ==================== */
 
@@ -242,6 +242,72 @@
   .foot-kontakt{margin:10px 0 0}
   .foot-kontakt span{display:block}
 
+
+  /* ============================================================
+     GESTALTUNGSVARIANTE: Organisch
+     Weiche Formen, runde Abschnittskanten, ohne Rahmen
+
+     Farbpalette und HTML sind in allen vier Varianten identisch.
+     Alles Folgende überschreibt nur die Gestaltung.
+     ============================================================ */
+  :root{--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif}
+  /* Lange Komposita wie "Lipödem-/Lymphödemdiagnostik" sprengen schmale
+     Spalten. Silbentrennung (lang="de" steht am html-Element) plus Umbruch
+     als Sicherheitsnetz. */
+  .karte h3,.schritt h3,.karte .zusatz{overflow-wrap:break-word;hyphens:auto}
+  .zitat p{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:0}
+  .zitat figcaption{font-family:var(--font)}
+
+  /* --- Organisch: weiche Formen, runde Abschnittskanten --- */
+  body::before{content:"";position:fixed;z-index:-1;pointer-events:none;
+    top:-12vh;right:-20vw;width:min(70vw,780px);aspect-ratio:1/1.15;
+    background:radial-gradient(ellipse at 42% 42%,var(--ton-1),transparent 64%);
+    border-radius:58% 42% 51% 49% / 42% 48% 52% 58%;opacity:.9}
+  body::after{content:"";position:fixed;z-index:-1;pointer-events:none;
+    bottom:-18vh;left:-22vw;width:min(74vw,840px);aspect-ratio:1/.92;
+    background:radial-gradient(ellipse at 58% 52%,var(--ton-2),transparent 62%);
+    border-radius:44% 56% 63% 37% / 56% 41% 59% 44%;opacity:.85}
+
+  h1{font-size:clamp(2.2rem,7.8vw,4.5rem)}
+  h2{font-size:clamp(2.1rem,6.4vw,3.5rem)}
+
+  /* Abschnitte mit großen Rundungen statt harter Kanten */
+  #leistungen{background:var(--ton-2);border-radius:0 0 clamp(32px,7vw,80px) clamp(32px,7vw,80px)}
+  #ueber.ueber-band{background:linear-gradient(165deg,var(--ton-1),var(--ton-3-hell));
+    border:0;border-radius:clamp(32px,7vw,80px);margin:clamp(20px,4vw,44px) clamp(10px,2vw,20px)}
+  #ablauf{background:none}
+  #kontakt{background:var(--ton-2);border-radius:clamp(32px,7vw,80px) clamp(32px,7vw,80px) 0 0}
+
+  /* Karten: keine Rahmen, große Radien, weiche Schatten */
+  .karte,.schritt,.kontakt-karte,.anfrage-karte,.ueber-karte{border:0;border-radius:clamp(24px,3.4vw,38px)}
+  .karte,.schritt{box-shadow:0 26px 54px -32px rgba(var(--schatten-rgb),.55)}
+  .anfrage-karte{background:var(--weiss)}
+  .kontakt-karte{background:var(--weiss)}
+
+  /* Leistungsmarker als organische Form */
+  .karte-punkt{width:54px;height:54px;border:0;
+    border-radius:58% 42% 47% 53% / 46% 55% 45% 54%;
+    background:linear-gradient(145deg,var(--akzent),var(--ton-1))}
+  .karte:nth-child(2n) .karte-punkt{border-radius:42% 58% 55% 45% / 55% 44% 56% 45%}
+  .karte:nth-child(3n) .karte-punkt{border-radius:51% 49% 38% 62% / 60% 47% 53% 40%}
+
+  .werdegang li{border:0;border-radius:22px;background:var(--weiss)}
+  .schritt-nr{border-radius:52% 48% 45% 55% / 48% 52% 48% 52%}
+  .ph{border-radius:clamp(24px,3.4vw,38px)}
+  .ph-portrait{border-radius:46% 54% 48% 52% / 6% 6% 94% 94%}
+
+  /* Zitat: Serifenkursiv in weicher Fläche */
+  .zitat{max-width:32ch;margin:0 auto 52px;padding:clamp(30px,5vw,46px) clamp(26px,4vw,44px);
+    background:var(--ton-1);border-radius:clamp(36px,6vw,72px) clamp(36px,6vw,72px) clamp(36px,6vw,72px) 20px;
+    text-align:center;position:relative}
+  .zitat p{font-size:clamp(1.55rem,4.2vw,2.5rem);line-height:1.18;color:var(--akzent-tief)}
+  .zitat p::before{content:"\201E"}
+  .zitat p::after{content:"\201C"}
+  .zitat figcaption{margin-top:1rem;color:var(--ink-soft)}
+
+  .btn{border-radius:999px}
+  .site-foot{background:none;border-top:0}
+
 </style>
 </head>
 <body>
@@ -249,8 +315,8 @@
 
 <div class="entwurf-bar">
   <div class="wrap">
-    <a href="../index.html">Zurück zum Farbvergleich</a>
-    <span>Farbvariante D: Taupe & Bronze</span>
+    <a href="../index.html">Zurück zur Übersicht</a>
+    <span>Gestaltung C: Organisch</span>
   </div>
 </div>
 

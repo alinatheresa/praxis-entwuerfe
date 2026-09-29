@@ -146,6 +146,7 @@
   .karte:nth-child(4) .karte-punkt{background:linear-gradient(140deg,var(--ton-1),var(--ton-3-hell))}
   .karte:nth-child(5) .karte-punkt{background:linear-gradient(140deg,var(--ton-3-hell),var(--ton-3))}
   .karte:nth-child(6) .karte-punkt{background:linear-gradient(140deg,var(--ton-2),var(--ton-1))}
+  .karte:nth-child(7) .karte-punkt{background:linear-gradient(140deg,var(--ton-3),var(--ton-2))}
   .karte h3{margin-bottom:.45rem}
   .karte .zusatz{font-size:.9rem;color:var(--akzent-tief);font-weight:600;margin:0 0 .7rem}
   .karte p.beschreibung{color:var(--ink-soft);font-size:.98rem;margin:auto 0 0}
@@ -162,6 +163,11 @@
   .werdegang .jahr{font-weight:800;font-size:.92rem;color:var(--akzent-tief);letter-spacing:-.01em}
   .werdegang .was{color:var(--ink-soft);font-size:.97rem;line-height:1.6}
   @media(min-width:640px){.werdegang li{grid-template-columns:100px 1fr;align-items:baseline}}
+
+  .zitat{margin:0 auto 46px;max-width:32ch;text-align:center}
+  .zitat blockquote{margin:0}
+  .zitat p{font-size:clamp(1.45rem,3.6vw,2.05rem);line-height:1.22;font-weight:700;letter-spacing:-.035em;color:var(--ink);margin:0}
+  .zitat figcaption{margin-top:1rem;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent-tief)}
 
   .schritte{display:grid;gap:20px;margin:0;padding:0;list-style:none}
   @media(min-width:960px){.schritte{grid-template-columns:repeat(3,1fr);gap:26px}}
@@ -295,7 +301,7 @@
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Sonographischer Gefäß-Check-up</h3>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
+          <p class="zusatz">beinhaltet die arterielle und venöse Farbdoppleruntersuchung</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
@@ -306,7 +312,7 @@
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Ästhetische Venentherapie / Besenreiserbehandlung</h3>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
+          <p class="zusatz">u. a. mittels Mikroschaumsklerotherapie</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
@@ -322,7 +328,12 @@
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Botox-Behandlung</h3>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
+          <p class="zusatz">z. B. bei Bruxismus oder Migräne</p>
+        </article>
+        <article class="karte">
+          <div class="karte-punkt" aria-hidden="true"></div>
+          <h3>PRP-Therapie</h3>
+          <p class="zusatz">u. a. zur Stärkung der Haarfollikel bei genetisch bedingtem Haarausfall</p>
         </article>
       </div>
     </div>
@@ -361,23 +372,29 @@
       <div class="sec-head zentriert">
         <p class="pill-label">Ablauf</p>
         <h2 id="ablauf-titel">Ihr Termin in drei Schritten</h2>
-        <p class="lede">[Platzhalter: Einleitung Ablauf, ca. 30 Wörter]</p>
       </div>
+
+      <figure class="zitat">
+        <blockquote>
+          <p>Wenn du es eilig hast, mache einen Umweg.</p>
+        </blockquote>
+        <figcaption>Japanisches Sprichwort</figcaption>
+      </figure>
+
       <ol class="schritte">
         <li class="schritt">
           <span class="schritt-nr" aria-hidden="true">1</span>
-          <h3>Erstgespräch</h3>
-          <p>[Platzhalter: Beschreibung Schritt 1, ca. 20 Wörter]</p>
+          <h3>Beratungsgespräch</h3>
+          <p>mit Untersuchung und Planung des weiteren Procedere</p>
         </li>
         <li class="schritt">
           <span class="schritt-nr" aria-hidden="true">2</span>
-          <h3>Untersuchung und Planung</h3>
-          <p>[Platzhalter: Beschreibung Schritt 2, ca. 20 Wörter]</p>
+          <h3>Therapie</h3>
+          <p>ausschließlich minimal-invasiv</p>
         </li>
         <li class="schritt">
           <span class="schritt-nr" aria-hidden="true">3</span>
-          <h3>Behandlung und Nachsorge</h3>
-          <p>[Platzhalter: Beschreibung Schritt 3, ca. 20 Wörter]</p>
+          <h3>Nachsorge</h3>
         </li>
       </ol>
     </div>

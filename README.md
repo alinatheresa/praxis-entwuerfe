@@ -137,10 +137,11 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 ## Offene Punkte
 
 - Entscheidung für eine Farbvariante
-- Kurzbeschreibungen zu den sechs Leistungen, je ein bis zwei Sätze
+- Kurzbeschreibungen zu drei der sieben Leistungen: Varizenbehandlung,
+  Lipödem-/Lymphödemdiagnostik und Infusionstherapie
 - Telefonnummer
 - Ablauf eines Termins: die drei Schritte sind noch vollständig Platzhalter
-- Einleitungstexte für Leistungen, Ablauf und Anfahrt
+- Einleitungstext für den Leistungsbereich
 - Fotos der Praxisräume und ein Portrait
 - Serverseitige Honeypot-Prüfung zusätzlich zur clientseitigen
 - Verschlüsselter Übertragungsweg und Dokumentation der Einwilligung

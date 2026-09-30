@@ -1,32 +1,52 @@
 # Praxisseite Dr. med. univ. Oana-Raluca Despa
 
-Entwurfsstand 29.09.2026. Basis ist die Farbpalette Mint und Himmelblau (vormals
+Entwurfsstand 30.09.2026. Basis ist die Farbpalette Mint und Himmelblau (vormals
 Farbvariante A). Die übrigen Farbvarianten sind entfallen und stecken in der Git-Historie.
-Zur Auswahl stehen jetzt vier **Gestaltungsvarianten** derselben Seite.
+Zur Auswahl stehen acht **Gestaltungsvarianten** derselben Seite in zwei Gruppen:
+A bis D unterscheiden sich in Flächen und Anordnung, E bis H zusätzlich in Schrift,
+Schriftgrößen, Rhythmus, Navigation, Leistungsdarstellung und Abschnittstrennung.
 
 ## Aufbau
 
 ```
-index.html              Übersicht, alle vier Varianten nebeneinander
+index.html              Übersicht, alle acht Varianten in zwei Gruppen
 seite/stil-a.html       Bänder            (vollflächige Farbwechsel)
 seite/stil-b.html       Versetzt          (editoriales Raster, keine Karten)
 seite/stil-c.html       Organisch         (weiche Formen, runde Kanten)
 seite/stil-d.html       Raster und Kante  (farbige Streifen, Akzentkanten)
+seite/stil-e.html       Editorial         (Serif, Haarlinien, Kapitälchen, nummerierte Liste)
+seite/stil-f.html       Statement         (Condensed-Versalien, Farbflächen, große Ziffern)
+seite/stil-g.html       Reduziert         (kleine Grotesk, nur Haarlinien, Definitionsliste)
+seite/stil-h.html       Organisch         (weiche Serif, Verläufe, versetztes Kachelraster)
 seite/impressum.html    Platzhalterseite
 seite/datenschutz.html  Platzhalterseite
 ```
 
-Die vier Varianten sind im HTML **zeichengleich identisch** bis auf die Variantenbezeichnung
-in der oberen Leiste. Inhalt, Abschnittsreihenfolge und Farbpalette sind überall dieselben.
-Unterschiedlich ist ausschließlich ein angehängter Stilblock im Stylesheet.
+Die acht Varianten sind im HTML **zeichengleich identisch** bis auf die Variantenbezeichnung
+in der oberen Leiste und, bei E bis H, den Google-Fonts-Link im Kopf. Inhalt,
+Abschnittsreihenfolge, Navigationspunkte, Formular und Farbpalette sind überall dieselben.
+Unterschiedlich ist ausschließlich ein angehängter Stilblock im Stylesheet. Bei E bis H ist
+dieser Block deutlich größer, weil er auch Schrift, Größen und Abstände neu setzt.
+
+| Variante | Schrift | Navigation | Leistungen | Abschnittstrennung |
+|---|---|---|---|---|
+| E Editorial | Newsreader + Source Sans 3 | Zeitschriftenkopf, zentriert, nicht mitlaufend | nummerierte Liste mit Linien | Haarlinie am Abschnittskopf, Label in der Randspalte |
+| F Statement | Barlow Condensed + Barlow | vollflächig grün, Versalien | breite Zeilen mit großer Nummer | Farbwechsel Grün, Weiß, Mint, Dunkel, Himmelblau |
+| G Reduziert | IBM Plex Sans | schlichte Textzeile, Kontakt als Textlink | zweispaltige Definitionsliste | Haarlinie über die volle Breite, nummerierte Labels |
+| H Organisch | Fraunces + Nunito Sans | offene Kopfzeile, Links in getönter Kapsel | unterschiedlich große Kacheln, versetzt | weiche Farbwaschungen ohne Kante |
+
+Das Grundstylesheet (bis zum Block `GESTALTUNGSVARIANTE`) ist in allen acht Dateien
+identisch. E bis H wurden aus `stil-a.html` erzeugt, indem nur Titel, Fontlink,
+Variantenbezeichnung und Stilblock ersetzt wurden. Hover-Bewegungen der Buttons sind in
+E bis H abgeschaltet.
 
 ## Farben und Stil wechseln
 
 Jede Seite enthält zwei klar abgegrenzte Blöcke im `<style>`-Tag:
 
-1. `FARBPALETTE` mit allen Farbwerten. In allen vier Varianten identisch. Außerhalb davon
+1. `FARBPALETTE` mit allen Farbwerten. In allen acht Varianten identisch. Außerhalb davon
    steht kein einziger Farbwert im Stylesheet.
-2. `GESTALTUNGSVARIANTE` am Ende. Nur dieser Block unterscheidet die vier Varianten und
+2. `GESTALTUNGSVARIANTE` am Ende. Nur dieser Block unterscheidet die Varianten und
    überschreibt Layout, Kartenstil, Typografie und Abschnittsflächen.
 
 Für die finale Seite wird der Stilblock der gewählten Variante behalten und die anderen
@@ -39,9 +59,14 @@ auf dem Petrolband erreicht 5,5:1, der helle Ton darauf 4,7:1, Akzenttext auf de
 
 ## Das Zitat im Ablauf
 
-In allen vier Varianten in Cormorant Garamond kursiv als Kontrast zur Plus Jakarta Sans,
+In A bis D in Cormorant Garamond kursiv als Kontrast zur Plus Jakarta Sans,
 jeweils anders gefasst: A über einer kräftigen Linie, B mit hängendem Anführungszeichen,
 C zentriert in einer weichen Fläche, D hinter einer Akzentkante.
+
+In E bis H in der Schrift der jeweiligen Variante: E als Pull-Quote in Newsreader kursiv
+zwischen zwei Linien, F riesig in Barlow Condensed kursiv über die volle Breite auf dunklem
+Grund, G klein und zentriert in Plex Sans kursiv mit viel Abstand, H in Fraunces kursiv auf
+einer getönten Verlaufsfläche.
 
 ## Kontaktbereich
 
@@ -130,9 +155,12 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
 
 - Je eine einzelne HTML-Datei, CSS im `<style>`-Tag, kein Framework, kein Build-Schritt.
 - JavaScript nur für die Formularvalidierung, rund 50 Zeilen, ohne Abhängigkeiten.
-- Externe Ressourcen: Google Fonts (Plus Jakarta Sans, Cormorant Garamond).
+- Externe Ressourcen: Google Fonts. A bis D: Plus Jakarta Sans, Cormorant Garamond.
+  E: Newsreader, Source Sans 3. F: Barlow Condensed, Barlow. G: IBM Plex Sans.
+  H: Fraunces, Nunito Sans. Vor dem Livegang lokal einbinden, damit beim Seitenaufruf keine
+  Daten an Google fließen.
 - Mobile-first. Überlauf geprüft bei 750, 900, 1100 und 1280 px sowie im
-  Mobil-Zweig; Chrome headless lässt sich nicht unter 500 px Fensterbreite zwingen.
+  Mobil-Zweig (E bis H bei 500, 900 und 1280 px); Chrome headless lässt sich nicht unter 500 px Fensterbreite zwingen.
 - Semantisches HTML, Sprungmarke zum Inhalt, `aria-label` auf allen Bildplatzhaltern.
 - Alle Seiten tragen `<meta name="robots" content="noindex, nofollow">`.
 

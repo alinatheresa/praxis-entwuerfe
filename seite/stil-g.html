@@ -118,9 +118,15 @@
   .btn-soft:hover{background:var(--ton-1)}
   .btn-lg{padding:16px 34px;font-size:1rem}
 
-  .ph{display:flex;align-items:center;justify-content:center;text-align:center;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(140deg,var(--ton-1) 0%,var(--ton-2) 60%,var(--ton-3-hell) 100%);color:var(--ink-soft);font-size:.85rem;font-weight:600;letter-spacing:.05em;padding:18px}
-  .ph-hero{aspect-ratio:3/2}
-  .ph-portrait{aspect-ratio:4/5}
+  /* Fotos. Der Grundton bleibt sichtbar, solange ein Bild lädt. */
+  .bild{display:block;width:100%;height:auto;object-fit:cover;border-radius:var(--radius);background:var(--ton-1)}
+  /* Zwei Hochformate nebeneinander, auch mobil: zweimal 3:4 ergibt genau 3:2 */
+  .bild-paar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:minmax(0,1fr);
+    gap:clamp(10px,2vw,20px);aspect-ratio:3/2}
+  .bild-paar picture{display:block;min-height:0}
+  .bild-paar .bild{height:100%}
+  /* Portrait: beschnitten wird unten, das Gesicht bleibt im oberen Drittel */
+  .bild-portrait{aspect-ratio:4/5;object-position:50% 15%}
 
   .hero{padding:44px 0 0;text-align:center}
   .hero .pill-label{margin-inline:auto}
@@ -195,7 +201,6 @@
      Kein display:none, damit einfache Bots das Feld als echt einstufen. */
   .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   .feld label{display:block;font-weight:700;font-size:.92rem;letter-spacing:-.01em;margin-bottom:7px}
-  .optional{font-weight:500;color:var(--ink-soft)}
   .feld input:not([type="checkbox"]),.feld textarea{
     width:100%;font-family:var(--font);font-size:1rem;line-height:1.6;color:var(--ink);
     background:var(--weiss);border:1px solid var(--line);border-radius:14px;padding:13px 16px;
@@ -299,8 +304,8 @@
   .hero .lede{margin-top:1.4rem}
   .hero-actions{justify-content:flex-start;gap:12px;margin-top:2rem}
   .hero-figure{margin-top:clamp(56px,8vw,104px)}
-  .ph{background:var(--ton-2);border:0;border-radius:0;font-weight:400;font-size:.78rem;letter-spacing:.02em}
-  @media(min-width:900px){.ph-hero{aspect-ratio:16/7}}
+  .bild{background:var(--ton-2);border-radius:0}
+  @media(min-width:900px){.bild-paar{aspect-ratio:16/7}}
 
   section:not(.hero){padding:clamp(72px,10vw,136px) 0;border-top:1px solid var(--line)}
   #ueber.ueber-band{background:none;border:0;border-top:1px solid var(--line)}
@@ -416,7 +421,18 @@
         <a class="btn btn-soft btn-lg" href="#leistungen">Leistungen ansehen</a>
       </div>
       <figure class="hero-figure">
-        <div class="ph ph-hero" role="img" aria-label="Platzhalterfläche für ein Foto der Praxisräume im Altbau">[Foto: Praxisräume im Altbau]</div>
+        <div class="bild-paar">
+          <picture>
+            <source type="image/webp" srcset="bilder/praxis-1290-750.webp 750w, bilder/praxis-1290-1500.webp 1500w" sizes="(min-width: 1120px) 540px, 50vw">
+            <img class="bild" src="bilder/praxis-1290-1500.jpg" srcset="bilder/praxis-1290-750.jpg 750w, bilder/praxis-1290-1500.jpg 1500w" sizes="(min-width: 1120px) 540px, 50vw" width="1500" height="2000" style="object-position:50% 62%"
+                 alt="Sitzecke der Praxis im Altbau mit Blick durch die geöffnete Flügeltür in den Behandlungsraum" fetchpriority="high">
+          </picture>
+          <picture>
+            <source type="image/webp" srcset="bilder/praxis-1320-750.webp 750w, bilder/praxis-1320-1500.webp 1500w" sizes="(min-width: 1120px) 540px, 50vw">
+            <img class="bild" src="bilder/praxis-1320-1500.jpg" srcset="bilder/praxis-1320-750.jpg 750w, bilder/praxis-1320-1500.jpg 1500w" sizes="(min-width: 1120px) 540px, 50vw" width="1500" height="2000" style="object-position:50% 72%"
+                 alt="Behandlungsraum der Praxis im Altbau mit Behandlungsliege und Fischgrätparkett" fetchpriority="high">
+          </picture>
+        </div>
       </figure>
     </div>
   </section>
@@ -438,7 +454,6 @@
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Minimal-invasive, ultraschallgesteuerte Varizenbehandlung</h3>
           <p class="zusatz">u. a. mittels Mikroschaumsklerosierung</p>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
@@ -448,13 +463,11 @@
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Lipödem-/Lymphödemdiagnostik</h3>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
           <h3>Infusionstherapie</h3>
           <p class="zusatz">u. a. nach Long Covid / Burn out</p>
-          <p class="beschreibung">[Platzhalter: 1 bis 2 Sätze zur Leistung]</p>
         </article>
         <article class="karte">
           <div class="karte-punkt" aria-hidden="true"></div>
@@ -474,7 +487,11 @@
     <div class="wrap ueber">
       <div>
         <figure class="ueber-karte" style="margin:0">
-          <div class="ph ph-portrait" role="img" aria-label="Platzhalterfläche für das Portrait von Dr. Despa">[Foto: Portrait Dr. Despa]</div>
+          <picture>
+            <source type="image/webp" srcset="bilder/portrait-1114-750.webp 750w, bilder/portrait-1114-1500.webp 1500w" sizes="(min-width: 960px) 440px, 100vw">
+            <img class="bild bild-portrait" src="bilder/portrait-1114-1500.jpg" srcset="bilder/portrait-1114-750.jpg 750w, bilder/portrait-1114-1500.jpg 1500w" sizes="(min-width: 960px) 440px, 100vw" width="1500" height="2000"
+                 alt="Dr. med. univ. Oana-Raluca Despa in ihrer Praxis" loading="lazy" decoding="async">
+          </picture>
           <p class="ueber-name">Dr. med. univ. Oana-Raluca Despa</p>
           <p class="ueber-rolle">Fachärztin für Gefäßchirurgie</p>
         </figure>
@@ -578,8 +595,8 @@
           <p class="fehler" id="fehler-f-email" role="alert" hidden></p>
         </div>
         <div class="feld">
-          <label for="f-telefon">Telefon <span class="optional">(optional)</span></label>
-          <input type="tel" id="f-telefon" name="telefon" autocomplete="tel" aria-describedby="fehler-f-telefon">
+          <label for="f-telefon">Telefon</label>
+          <input type="tel" id="f-telefon" name="telefon" autocomplete="tel" required aria-required="true" aria-describedby="fehler-f-telefon">
           <p class="fehler" id="fehler-f-telefon" role="alert" hidden></p>
         </div>
         <div class="feld">
@@ -644,8 +661,8 @@
      ok:function(w){return w.trim().length > 0;}},
     {id:'f-email',     text:'Bitte geben Sie eine gültige E-Mail-Adresse an.',
      ok:function(w){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(w.trim());}},
-    {id:'f-telefon',   text:'Bitte prüfen Sie die Telefonnummer.',
-     ok:function(w){return w.trim() === '' || /^[0-9+()\/\s.-]{6,}$/.test(w.trim());}},
+    {id:'f-telefon',   text:'Bitte geben Sie eine gültige Telefonnummer an.',
+     ok:function(w){return /^[0-9+()\/\s.-]{6,}$/.test(w.trim());}},
     {id:'f-nachricht', text:'Bitte beschreiben Sie kurz Ihr Anliegen.',
      ok:function(w){return w.trim().length > 0;}},
     {id:'f-einwilligung', text:'Bitte stimmen Sie der Verarbeitung Ihrer Angaben zu.',

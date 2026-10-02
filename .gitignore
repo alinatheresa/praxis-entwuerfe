@@ -4,3 +4,6 @@
 referenz/
 inhalte/
 *.rtf
+
+# Originalfotos (groß, mit GPS-Daten). Aufbereitete Fassungen liegen in seite/bilder/
+Fotos/

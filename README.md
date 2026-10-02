@@ -18,12 +18,13 @@ seite/stil-e.html       Editorial         (Serif, Haarlinien, Kapitälchen, numm
 seite/stil-f.html       Statement         (Condensed-Versalien, Farbflächen, große Ziffern)
 seite/stil-g.html       Reduziert         (kleine Grotesk, nur Haarlinien, Definitionsliste)
 seite/stil-h.html       Organisch         (weiche Serif, Verläufe, versetztes Kachelraster)
+seite/bilder/           aufbereitete Fotos (JPEG und WebP, je 750 und 1500 px breit)
 seite/impressum.html    Platzhalterseite
 seite/datenschutz.html  Platzhalterseite
 ```
 
 Die acht Varianten sind im HTML **zeichengleich identisch** bis auf die Variantenbezeichnung
-in der oberen Leiste und, bei E bis H, den Google-Fonts-Link im Kopf. Inhalt,
+in der oberen Leiste, das Portrait unter „Über mich“ und, bei E bis H, den Google-Fonts-Link im Kopf. Inhalt,
 Abschnittsreihenfolge, Navigationspunkte, Formular und Farbpalette sind überall dieselben.
 Unterschiedlich ist ausschließlich ein angehängter Stilblock im Stylesheet. Bei E bis H ist
 dieser Block deutlich größer, weil er auch Schrift, Größen und Abstände neu setzt.
@@ -68,6 +69,32 @@ zwischen zwei Linien, F riesig in Barlow Condensed kursiv über die volle Breite
 Grund, G klein und zentriert in Plex Sans kursiv mit viel Abstand, H in Fraunces kursiv auf
 einer getönten Verlaufsfläche.
 
+## Fotos
+
+Kopfbereich in allen acht Varianten: IMG_1290 und IMG_1320 (beide Hochformat) nebeneinander,
+auch mobil als zwei schmale Spalten. Zweimal 3:4 ergibt genau das 3:2 der früheren
+Bildfläche; wo eine Variante die Fläche breiter setzt (E 21:9, F 2:1, G 16:7) oder schmaler
+(H 4:5), wird per `object-position` beschnitten. In H tragen beide Fotos einen Bogen wie
+ein Altbaufenster.
+
+Portrait unter „Über mich“, je Variante ein anderes, damit die Kundin vergleichen kann:
+
+| A | B | C | D | E | F | G | H |
+|---|---|---|---|---|---|---|---|
+| 1229 | 1151 | 1123 | 1241 | 1149 | 1248 | 1114 | 1132 |
+
+Bei 1149 und 1151 steht das Gesicht im Original zu tief; beide sind enger auf 3:4
+zugeschnitten, damit es im oberen Drittel liegt.
+
+Aufbereitung: von Display P3 nach sRGB gewandelt, lange Seite 2000 px (plus 1000 px für
+`srcset`), JPEG und WebP, alle Dateien unter 400 KB, sämtliche Metadaten einschließlich EXIF
+und GPS entfernt. Die Originale in `Fotos/` sind per `.gitignore` ausgeschlossen, weil sie
+groß sind und Standortdaten enthalten. Alle Bilder außer den beiden im Kopfbereich laden
+mit `loading="lazy"`.
+
+Die übrigen ausgewählten Praxisfotos (1300, 1303, 1316) sind nicht eingebaut, weil keine
+Variante eine weitere Bildfläche hat.
+
 ## Kontaktbereich
 
 Formular und Kontaktangaben liegen in einem gemeinsamen Abschnitt mit der ID `#kontakt`.
@@ -82,7 +109,7 @@ iframe, kein Kartendienst im Seitenaufbau, damit ohne Einwilligung keine Daten a
 fließen.
 
 Das Terminbuchungs-Widget ist entfallen. An seiner Stelle steht ein Kontaktformular mit
-Name, E-Mail, Telefon (optional) und Nachricht.
+Name, E-Mail, Telefon und Nachricht.
 
 **Keine Auswahlfelder** zu Behandlungen, Beschwerden oder Diagnosen. Gesundheitsdaten
 werden also nicht strukturiert erhoben, können aber im Freitextfeld „Nachricht" stehen.
@@ -106,7 +133,7 @@ Die Bestätigung erscheint trotzdem, damit ein Bot nicht erkennt, dass er aufgef
 Kein reCAPTCHA, keine externen Dienste. Die Prüfung muss später zusätzlich serverseitig
 erfolgen, weil clientseitiges JavaScript umgangen werden kann.
 
-Pflichtfelder sind Name, E-Mail und Nachricht. Die Validierung läuft ohne Framework, zeigt
+Pflichtfelder sind Name, E-Mail, Telefon, Nachricht und die Einwilligung. Die Validierung läuft ohne Framework, zeigt
 Fehler direkt am Feld, setzt `aria-invalid`, springt zum ersten fehlerhaften Feld und
 räumt die Meldung wieder ab, sobald die Eingabe stimmt. Nach erfolgreichem Absenden
 erscheint eine Bestätigung, die den Fokus erhält.
@@ -161,18 +188,16 @@ Wörtlich aus ihrem Text, nicht offensichtlich unzulässig, aber als anpreisend 
   Daten an Google fließen.
 - Mobile-first. Überlauf geprüft bei 750, 900, 1100 und 1280 px sowie im
   Mobil-Zweig (E bis H bei 500, 900 und 1280 px); Chrome headless lässt sich nicht unter 500 px Fensterbreite zwingen.
-- Semantisches HTML, Sprungmarke zum Inhalt, `aria-label` auf allen Bildplatzhaltern.
+- Semantisches HTML, Sprungmarke zum Inhalt, beschreibende `alt`-Texte an allen Fotos.
 - Alle Seiten tragen `<meta name="robots" content="noindex, nofollow">`.
 
 ## Offene Punkte
 
 - Entscheidung für eine Gestaltungsvariante
-- Kurzbeschreibungen zu drei der sieben Leistungen: Varizenbehandlung,
-  Lipödem-/Lymphödemdiagnostik und Infusionstherapie
 - Telefonnummer
 - Ablauf eines Termins: die drei Schritte sind noch vollständig Platzhalter
 - Einleitungstext für den Leistungsbereich
-- Fotos der Praxisräume und ein Portrait
+- Auswahl eines der acht Portraits
 - Serverseitige Honeypot-Prüfung zusätzlich zur clientseitigen
 - Verschlüsselter Übertragungsweg und Dokumentation der Einwilligung
 - Versandweg für das Kontaktformular
